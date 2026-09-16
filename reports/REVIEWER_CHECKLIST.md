@@ -1,6 +1,8 @@
-# Reviewer checklist — tự kiểm bài cá nhân
+# Reviewer checklist — tự kiểm bài cá nhân tại mốc khóa
 
 Người gán: LÊ NGỌC NAM. Người kiểm: Codex hỗ trợ đọc ảnh gốc và ảnh phủ. Ngày: 2026-09-16.
+
+> Đây là checklist lịch sử ở commit `d9ded1f`, trước protected-release rework. Các mục “chưa đạt” bên dưới mô tả bản khóa ban đầu; trạng thái đã sửa và đánh giá mới nằm trong [REPORT.md](REPORT.md).
 
 Đây là tự kiểm, không có partner độc lập hay chấm điểm với gold. Bản COCO/CVAT không bị chỉnh; YOLO là bản chuyển đổi bằng công cụ có sẵn.
 
@@ -16,7 +18,7 @@ Người gán: LÊ NGỌC NAM. Người kiểm: Codex hỗ trợ đọc ảnh g�
 | 6 | Không có `v=2` tại điểm vô lý / dấu hiệu Hidden | Cần rà lại | Tai sau mũ ở train_04, gối sát mép dưới ở train_01. Không suy ra lịch sử dùng phím Hidden từ export. |
 | 7 | COCO Keypoints: 51 số mỗi người | Đạt | Đủ 27/27; đúng tên/thứ tự COCO17, `num_keypoints` bằng số điểm `v>0`. |
 | 8 | YOLO: 56 số/dòng, `kpt_shape: [17, 3]` | Đạt | 20 file, 27 dòng; [data.yaml](../data.yaml) có cấu hình đúng. Converter đặt `(0,0)` cho điểm `v=0`. |
-| 9 | Visibility report đã nộp; đối chiếu hai bảng | Đạt báo cáo; đối chiếu N/A | [Bảng](visibility_report.md), [JSON](../outputs/visibility_report.json); bài cá nhân nên không chạy `--compare`. |
+| 9 | Visibility report đã nộp; đối chiếu hai bảng | Đạt báo cáo; đối chiếu N/A | [Bảng trước rework](visibility_report_before.md), [JSON trước rework](../outputs/visibility_report_before.json); bài cá nhân nên không chạy `--compare`. |
 | 10 | Ca mơ hồ được ghi vào mini guideline | Đạt | [GUIDELINE_MINI.md](../GUIDELINE_MINI.md) ghi ba ca train_02/03/09 và sáu tình huống kèm ảnh. |
 | 11 | check_pose_labels.py chạy 0 lỗi | Đạt cấu trúc, 7 cảnh báo | Đã đọc 20/20 file, 27 skeleton, exit code 0. [Log](pose_validation.log) giữ đầy đủ cảnh báo. |
 

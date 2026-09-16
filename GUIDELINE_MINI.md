@@ -2,6 +2,8 @@
 
 Người gán: LÊ NGỌC NAM. Người kiểm: Codex hỗ trợ kiểm tra ảnh phủ. Ngày: 2026-09-16.
 
+> Các số liệu và phát hiện ban đầu dưới đây thuộc mốc khóa `d9ded1f`. Protected release đã mở cho lượt rework tiếp theo; trạng thái sửa và chỉ số mới nằm trong [REPORT.md](reports/REPORT.md).
+
 Phạm vi: kiểm tra bản nhãn người gán đã hoàn thành; không gán lại 18 ảnh. Các quy tắc dưới đây dùng để đánh giá nhãn hiện tại. Những điểm chưa tuân thủ được ghi trong [biên bản tự kiểm](reports/review_partner.md), chưa sửa trong bản khóa.
 
 ## 1. Luật bắt buộc
@@ -53,14 +55,18 @@ Phạm vi: kiểm tra bản nhãn người gán đã hoàn thành; không gán l
 - Hậu quả nếu quyết ngược: model mất các điểm mặt ở tư thế quay lưng; báo cáo visibility đánh đồng bị che với ngoài ảnh.
 - Kết quả bản hiện tại: lỗi được ghi trong biên bản; nhãn được giữ nguyên theo phạm vi tự kiểm.
 
-## 4. Visibility và bài cá nhân
+## 4. Visibility tại mốc khóa và bài cá nhân
 
-- Đã tạo [bảng visibility](reports/visibility_report.md) và [JSON](outputs/visibility_report.json).
+- Đã tạo [bảng visibility trước rework](reports/visibility_report_before.md) và [JSON trước rework](outputs/visibility_report_before.json).
 - Tổng 20 ảnh, 27 skeleton: `v=2: 334`, `v=1: 93`, `v=0: 32`.
 - Tai trái có tỷ lệ `v=1` cao nhất: 11/27, khoảng 41%. Hông trái 7/27 so với hông phải 3/27 là tín hiệu cần soi ảnh, không tự chứng minh sai.
 - So sánh với partner: **không áp dụng**, theo yêu cầu làm cá nhân. Không có bảng đối chiếu hay điểm chấm của partner.
 - Quy tắc cần làm rõ: mặt quay lưng vẫn ở trong khung; điểm bị che dùng `v=1`, không dùng `v=0`.
 
-## 5. Mốc khóa nhãn
+## 5. Mốc khóa nhãn ban đầu
 
 Commit cuối lượt kiểm khóa nguyên export người gán và 20 file YOLO chuyển đổi. Hash từng file nằm trong [manifest](reports/label_lock_manifest.json). Sau commit không chỉnh nhãn cho tới protected release. Mốc này bảo toàn bài nộp; không phải xác nhận rằng toàn bộ kiểm hình dáng đã đạt. Các phát hiện còn mở được giữ trong biên bản tự kiểm.
+
+## 6. Rework sau protected release
+
+Đã đánh giá gold, sửa trong CVAT, export thật và convert lại sau khi người dùng yêu cầu lượt rework. Bản hiện tại có 20 ảnh, 29 skeleton; chỉ số trước–sau và từng lỗi đã sửa nằm trong [REPORT.md](reports/REPORT.md), hash hiện tại trong [rework manifest](reports/rework_manifest.json). Manifest khóa cũ giữ nguyên để truy lại nhãn tại commit `d9ded1f`, không mô tả hash nhãn mới. Khớp bị che nhưng trong ảnh vẫn giữ `v=1` và chấm ước lượng dù gold COCO không gán; không dùng gold để train.

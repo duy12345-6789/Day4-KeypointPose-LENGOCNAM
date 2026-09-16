@@ -1,6 +1,8 @@
-# Biên bản tự kiểm — bài cá nhân
+# Biên bản tự kiểm — bài cá nhân tại mốc khóa
 
 Người gán: LÊ NGỌC NAM. Người kiểm: Codex hỗ trợ kiểm ảnh gốc và ảnh phủ. Ngày: 2026-09-16.
+
+> Biên bản này ghi bản khóa `d9ded1f`, trước protected-release rework. Các trạng thái “chưa sửa” là trạng thái tại mốc đó; xem [REPORT.md](REPORT.md) và [rework_changes.json](rework_changes.json) cho sửa đổi sau release.
 
 **Partner: không áp dụng.** Người gán làm cá nhân theo yêu cầu; không có kiểm chéo độc lập, không chạy `--compare`, không tạo bảng giả hoặc chấm với partner/gold.
 
@@ -12,7 +14,7 @@ Phạm vi là bản export người gán đã hoàn thành. Không sửa annotat
 - 20/20 ảnh có file nhãn, 27 skeleton. Mỗi skeleton có 17 bộ ba/51 số COCO, mỗi dòng YOLO 56 số; `num_keypoints` đúng số điểm `v>0`.
 - Tên/thứ tự COCO17 và kích thước ảnh khớp. [data.yaml](../data.yaml) có `kpt_shape: [17, 3]`.
 - `check_pose_labels.py`: **0 lỗi cấu trúc, 7 cảnh báo**, exit code 0. [Log đầy đủ](pose_validation.log).
-- [Visibility report](visibility_report.md): `v=2: 334`, `v=1: 93`, `v=0: 32`; [JSON](../outputs/visibility_report.json) có `comparison: null`.
+- [Visibility trước rework](visibility_report_before.md): `v=2: 334`, `v=1: 93`, `v=0: 32`; [JSON trước rework](../outputs/visibility_report_before.json) có `comparison: null`.
 - [Ảnh phủ tổng quan 20 ảnh](review_evidence/train_overview.jpg), ảnh riêng ở `outputs/vis_train/`. Các cặp ảnh gốc/ảnh phủ trong `review_evidence/` là bằng chứng từ export, không phải screenshot giao diện CVAT.
 
 ## Các phát hiện

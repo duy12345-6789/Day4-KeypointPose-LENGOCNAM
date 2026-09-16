@@ -1,0 +1,1125 @@
+{
+  "task_id": 7,
+  "changed_people": [
+    {
+      "image": "train_01.jpg",
+      "person_before": 1,
+      "person_after": 2,
+      "coco_id_before": 1,
+      "coco_id_after": 2,
+      "cvat_shape_id": 106,
+      "changes": [
+        {
+          "keypoint": "left_ear",
+          "before": [
+            291.83,
+            210.78,
+            2
+          ],
+          "after": [
+            291.83,
+            210.78,
+            1
+          ]
+        },
+        {
+          "keypoint": "right_ear",
+          "before": [
+            253.99,
+            205.88,
+            2
+          ],
+          "after": [
+            253.99,
+            205.88,
+            1
+          ]
+        },
+        {
+          "keypoint": "left_elbow",
+          "before": [
+            306.55,
+            301.54,
+            2
+          ],
+          "after": [
+            306.55,
+            301.54,
+            1
+          ]
+        },
+        {
+          "keypoint": "left_hip",
+          "before": [
+            293.09,
+            358.9,
+            2
+          ],
+          "after": [
+            293.09,
+            358.9,
+            1
+          ]
+        },
+        {
+          "keypoint": "right_hip",
+          "before": [
+            244.01,
+            358.19,
+            2
+          ],
+          "after": [
+            244.01,
+            358.19,
+            1
+          ]
+        },
+        {
+          "keypoint": "left_knee",
+          "before": [
+            290.34,
+            418.83,
+            2
+          ],
+          "after": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "keypoint": "right_knee",
+          "before": [
+            243.67,
+            420.03,
+            2
+          ],
+          "after": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "reason": "Original image: both ear landmarks hidden by curly hair; left elbow hidden at pizza edge; apron hides hip landmarks. Actual knees extend below the bottom crop (427px), rather than being at the current points on the apron near y419. This is based on body proportions and crop; gold v0 is diagnostic confirmation, not a rule to delete occluded points."
+    },
+    {
+      "image": "train_01.jpg",
+      "person_before": 2,
+      "person_after": 1,
+      "coco_id_before": 2,
+      "coco_id_after": 1,
+      "cvat_shape_id": 107,
+      "changes": [
+        {
+          "keypoint": "left_ear",
+          "before": [
+            435.28,
+            184.24,
+            2
+          ],
+          "after": [
+            435,
+            195,
+            2
+          ]
+        },
+        {
+          "keypoint": "right_ear",
+          "before": [
+            395.63,
+            186.04,
+            2
+          ],
+          "after": [
+            394,
+            193,
+            1
+          ]
+        },
+        {
+          "keypoint": "right_wrist",
+          "before": [
+            350.59,
+            321.64,
+            1
+          ],
+          "after": [
+            358,
+            296,
+            1
+          ]
+        },
+        {
+          "keypoint": "left_knee",
+          "before": [
+            443.14,
+            417.21,
+            2
+          ],
+          "after": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "keypoint": "right_knee",
+          "before": [
+            376.71,
+            420.21,
+            2
+          ],
+          "after": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "reason": "Original close-up: anatomical left ear is visible below the existing hair/temple point, right ear is hidden by the head/hair. Right arm reaches the upper back edge of the pizza; wrist is hidden around x358,y296, not inside the lower pizza at x351,y322. Evaluator slight wrist difference is confirmed visually. Actual knees are below the 427px image crop. Trousers still show enough hip contour, so leave hip v2."
+    },
+    {
+      "image": "train_03.jpg",
+      "person_before": 1,
+      "person_after": 2,
+      "coco_id_before": 4,
+      "coco_id_after": 5,
+      "cvat_shape_id": 178,
+      "changes": [
+        {
+          "keypoint": "left_wrist",
+          "before": [
+            272.93,
+            214.39,
+            0
+          ],
+          "after": [
+            272.93,
+            214.39,
+            1
+          ]
+        },
+        {
+          "keypoint": "left_knee",
+          "before": [
+            307.25,
+            386.98,
+            2
+          ],
+          "after": [
+            307.25,
+            386.98,
+            1
+          ]
+        },
+        {
+          "keypoint": "left_ankle",
+          "before": [
+            312.5,
+            454.82,
+            2
+          ],
+          "after": [
+            312.5,
+            454.82,
+            1
+          ]
+        }
+      ],
+      "reason": "Rear man: left wrist is in frame behind the foreground man, so retain an estimate and use v1 instead of v0. Left knee is behind the foreground shorts/leg; left ankle is partly behind bicycle components. Preserve coordinates for these occluded estimates. Do not copy gold v0 to wrist/elbow, or switch visible clothing contours solely to match gold."
+    },
+    {
+      "image": "train_04.jpg",
+      "person_before": 1,
+      "person_after": 2,
+      "coco_id_before": 6,
+      "coco_id_after": 7,
+      "cvat_shape_id": 196,
+      "changes": [
+        {
+          "keypoint": "left_ear",
+          "before": [
+            469.49,
+            135.85,
+            2
+          ],
+          "after": [
+            469.49,
+            135.85,
+            1
+          ]
+        },
+        {
+          "keypoint": "right_ear",
+          "before": [
+            390.12,
+            139.06,
+            2
+          ],
+          "after": [
+            390.12,
+            139.06,
+            1
+          ]
+        }
+      ],
+      "reason": "Foreground rider ear landmarks are completely covered by helmet shell/padding, within the frame. Retain estimates with v1. Lower-body v0 is legitimate below the crop, not a hidden-point error."
+    },
+    {
+      "image": "train_04.jpg",
+      "person_before": 2,
+      "person_after": 1,
+      "coco_id_before": 7,
+      "coco_id_after": 6,
+      "cvat_shape_id": 214,
+      "changes": [
+        {
+          "keypoint": "left_wrist",
+          "before": [
+            366.09,
+            353.31,
+            1
+          ],
+          "after": [
+            331,
+            365,
+            1
+          ]
+        },
+        {
+          "keypoint": "left_ear",
+          "before": [
+            140.21,
+            274.81,
+            2
+          ],
+          "after": [
+            140.21,
+            274.81,
+            1
+          ]
+        },
+        {
+          "keypoint": "right_ear",
+          "before": [
+            66.0,
+            276.66,
+            2
+          ],
+          "after": [
+            66,
+            276.66,
+            1
+          ]
+        }
+      ],
+      "reason": "Rear grey rider left sleeve extends toward x330,y365 and ends behind the foreground rider. Existing endpoint x366,y353 is in the foreground glove region; relocate an estimated own wrist, retaining v1. Both ears are hidden by helmet. Do not blindly adopt gold v2 ears under helmets, or flag actual below-frame hips/legs as occlusion."
+    },
+    {
+      "image": "train_06.jpg",
+      "person_before": 1,
+      "person_after": 1,
+      "coco_id_before": 9,
+      "coco_id_after": 9,
+      "cvat_shape_id": 250,
+      "changes": [
+        {
+          "keypoint": "right_shoulder",
+          "before": [
+            408.59,
+            202.97,
+            2
+          ],
+          "after": [
+            387,
+            210,
+            1
+          ]
+        }
+      ],
+      "reason": "Original crop shows existing x408,y203 at the black motorcycle passenger backrest top, not the rider shoulder. Estimate the far shoulder near the green jacket behind that backrest (x387,y210,v1). Gold places the point near the same backrest; proposed fix follows visible anatomy rather than optimizing agreement. Keep the occluded far arm/leg estimates, rather than deleting gold-v0 joints."
+    },
+    {
+      "image": "train_08.jpg",
+      "person_before": 1,
+      "person_after": 1,
+      "coco_id_before": 11,
+      "coco_id_after": 11,
+      "cvat_shape_id": 286,
+      "changes": [
+        {
+          "keypoint": "right_ankle",
+          "before": [
+            135.88,
+            420.57,
+            2
+          ],
+          "after": [
+            141,
+            452,
+            2
+          ]
+        }
+      ],
+      "reason": "Image shows the jeans cuff and ankle below the original lower-shin point. Correct the anatomical joint, rather than copying the higher gold point."
+    },
+    {
+      "image": "train_09.jpg",
+      "person_before": 1,
+      "person_after": 1,
+      "coco_id_before": 12,
+      "coco_id_after": 12,
+      "cvat_shape_id": 304,
+      "changes": [
+        {
+          "keypoint": "nose",
+          "before": [
+            269.29,
+            220.51,
+            0
+          ],
+          "after": [
+            254,
+            234,
+            1
+          ]
+        },
+        {
+          "keypoint": "left_eye",
+          "before": [
+            257.4,
+            225.0,
+            2
+          ],
+          "after": [
+            257,
+            227,
+            1
+          ]
+        },
+        {
+          "keypoint": "right_eye",
+          "before": [
+            273.67,
+            217.01,
+            0
+          ],
+          "after": [
+            261,
+            227,
+            1
+          ]
+        },
+        {
+          "keypoint": "left_ear",
+          "before": [
+            265.65,
+            227.73,
+            2
+          ],
+          "after": [
+            264,
+            228,
+            2
+          ]
+        },
+        {
+          "keypoint": "right_ear",
+          "before": [
+            286.08,
+            221.62,
+            1
+          ],
+          "after": [
+            275,
+            230,
+            1
+          ]
+        },
+        {
+          "keypoint": "right_shoulder",
+          "before": [
+            297.51,
+            255.51,
+            2
+          ],
+          "after": [
+            297.51,
+            255.51,
+            1
+          ]
+        },
+        {
+          "keypoint": "right_elbow",
+          "before": [
+            305.99,
+            289.22,
+            0
+          ],
+          "after": [
+            297,
+            289,
+            1
+          ]
+        },
+        {
+          "keypoint": "right_wrist",
+          "before": [
+            363.71,
+            350.65,
+            0
+          ],
+          "after": [
+            282,
+            308,
+            1
+          ]
+        }
+      ],
+      "reason": "Enlarged original shows the head turned to image left: estimate hidden facial landmarks near the actual profile below the helmet, not at the helmet center. Near ear contour is visible v2; hidden eye/nose/far ear and far arm remain in-frame v1 even where original COCO gold has v0. Do not retain the discarded wrist placeholder in the road."
+    },
+    {
+      "image": "train_11.jpg",
+      "person_before": 1,
+      "person_after": 1,
+      "coco_id_before": 14,
+      "coco_id_after": 14,
+      "cvat_shape_id": 340,
+      "changes": [
+        {
+          "keypoint": "left_eye",
+          "before": [
+            339.88,
+            70.85,
+            2
+          ],
+          "after": [
+            339.88,
+            70.85,
+            1
+          ]
+        },
+        {
+          "keypoint": "right_eye",
+          "before": [
+            307.15,
+            73.88,
+            2
+          ],
+          "after": [
+            307.15,
+            73.88,
+            1
+          ]
+        },
+        {
+          "keypoint": "left_knee",
+          "before": [
+            325.32,
+            380.39,
+            0
+          ],
+          "after": [
+            380,
+            388,
+            1
+          ]
+        },
+        {
+          "keypoint": "right_knee",
+          "before": [
+            296.62,
+            361.61,
+            0
+          ],
+          "after": [
+            277,
+            386,
+            1
+          ]
+        }
+      ],
+      "reason": "Dark glasses hide eye landmarks. Woman is seated behind the table: knees can be estimated within frame with v1; ankles remain outside the bottom crop v0. Gold unannotated knees are diagnostic, not a command to delete these estimates."
+    },
+    {
+      "image": "train_12.jpg",
+      "person_before": 1,
+      "person_after": 1,
+      "coco_id_before": 15,
+      "coco_id_after": 15,
+      "cvat_shape_id": 341,
+      "changes": [
+        {
+          "keypoint": "left_hip",
+          "before": [
+            263.25,
+            287.3,
+            2
+          ],
+          "after": [
+            263.25,
+            287.3,
+            1
+          ]
+        },
+        {
+          "keypoint": "right_hip",
+          "before": [
+            143.63,
+            290.42,
+            2
+          ],
+          "after": [
+            143.63,
+            290.42,
+            1
+          ]
+        },
+        {
+          "keypoint": "right_knee",
+          "before": [
+            167.71,
+            303.88,
+            2
+          ],
+          "after": [
+            184,
+            350,
+            1
+          ]
+        },
+        {
+          "keypoint": "right_ankle",
+          "before": [
+            168.07,
+            440.07,
+            2
+          ],
+          "after": [
+            157,
+            494,
+            2
+          ]
+        }
+      ],
+      "reason": "Loose polo and cardboard obscure pelvis/knee; retain estimated joints as v1. Visible ankle is at the shoe/cuff, below the original lower-leg point. Image-supported rework can differ slightly from COCO gold."
+    },
+    {
+      "image": "train_13.jpg",
+      "person_before": 1,
+      "person_after": 2,
+      "coco_id_before": 16,
+      "coco_id_after": 17,
+      "cvat_shape_id": 376,
+      "changes": [
+        {
+          "keypoint": "left_hip",
+          "before": [
+            289.83,
+            219.78,
+            2
+          ],
+          "after": [
+            289.83,
+            219.78,
+            1
+          ]
+        },
+        {
+          "keypoint": "right_hip",
+          "before": [
+            200.69,
+            224.34,
+            2
+          ],
+          "after": [
+            200.69,
+            224.34,
+            1
+          ]
+        },
+        {
+          "keypoint": "left_knee",
+          "before": [
+            289.83,
+            270.17,
+            2
+          ],
+          "after": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "keypoint": "right_knee",
+          "before": [
+            206.39,
+            278.72,
+            2
+          ],
+          "after": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "reason": "Main person's suit jacket hides hip landmarks. Image cuts the lower body at thighs/bag: actual knees are below the crop; do not put knees on the lower image edge. Restore the two separate background people below."
+    },
+    {
+      "image": "train_14.jpg",
+      "person_before": 1,
+      "person_after": 1,
+      "coco_id_before": 17,
+      "coco_id_after": 19,
+      "cvat_shape_id": 394,
+      "changes": [
+        {
+          "keypoint": "right_hip",
+          "before": [
+            254.91,
+            307.88,
+            2
+          ],
+          "after": [
+            254.91,
+            307.88,
+            1
+          ]
+        },
+        {
+          "keypoint": "right_knee",
+          "before": [
+            278.17,
+            330.17,
+            2
+          ],
+          "after": [
+            278.17,
+            330.17,
+            1
+          ]
+        }
+      ],
+      "reason": "Seated person's hip/knee are behind loose clothing and the blue umbrella; preserve estimates and use v1."
+    },
+    {
+      "image": "train_14.jpg",
+      "person_before": 2,
+      "person_after": 2,
+      "coco_id_before": 18,
+      "coco_id_after": 20,
+      "cvat_shape_id": 412,
+      "changes": [
+        {
+          "keypoint": "left_ear",
+          "before": [
+            196.23,
+            153.1,
+            2
+          ],
+          "after": [
+            196.23,
+            153.1,
+            1
+          ]
+        },
+        {
+          "keypoint": "right_ear",
+          "before": [
+            222.58,
+            163.48,
+            2
+          ],
+          "after": [
+            222.58,
+            163.48,
+            1
+          ]
+        }
+      ],
+      "reason": "Cap/hair and turned-away head obscure the standing person's ear landmarks; points belong to the head, not the cap edge."
+    },
+    {
+      "image": "train_15.jpg",
+      "person_before": 1,
+      "person_after": 2,
+      "coco_id_before": 19,
+      "coco_id_after": 22,
+      "cvat_shape_id": 430,
+      "changes": [
+        {
+          "keypoint": "left_ear",
+          "before": [
+            135.17,
+            98.58,
+            1
+          ],
+          "after": [
+            132,
+            122,
+            1
+          ]
+        }
+      ],
+      "reason": "The hidden far ear was at y=98.58 on the upper helmet. Estimate it at anatomical ear level near the face and retain v=1. Original and enlarged head crop support the level; gold's v=0 is diagnostic and is not copied. Other uncertain shoulder/arm audit flags are left unchanged."
+    },
+    {
+      "image": "train_15.jpg",
+      "person_before": 2,
+      "person_after": 1,
+      "coco_id_before": 20,
+      "coco_id_after": 21,
+      "cvat_shape_id": 431,
+      "changes": [
+        {
+          "keypoint": "left_eye",
+          "before": [
+            302.63,
+            103.82,
+            2
+          ],
+          "after": [
+            302.63,
+            103.82,
+            1
+          ]
+        },
+        {
+          "keypoint": "left_ear",
+          "before": [
+            321.87,
+            99.95,
+            2
+          ],
+          "after": [
+            320,
+            112,
+            1
+          ]
+        },
+        {
+          "keypoint": "right_ear",
+          "before": [
+            317.24,
+            90.25,
+            1
+          ],
+          "after": [
+            305,
+            110,
+            1
+          ]
+        },
+        {
+          "keypoint": "right_elbow",
+          "before": [
+            287.77,
+            210.82,
+            1
+          ],
+          "after": [
+            314,
+            229,
+            1
+          ]
+        }
+      ],
+      "reason": "Opaque sunglasses hide the left eye and the helmet hides both ears; ear estimates move below the helmet crown to head/ear level. The far right elbow was in background at (287.77,210.82); gold diagnostic reports a 34px slight offset. Estimate the tucked elbow behind the torso at (314,229), giving a coherent right shoulder->elbow->wrist chain and retain v=1. This is an image-supported occluded-joint estimate, not a copy of gold v=0 or an assertion that the elbow is visible."
+    },
+    {
+      "image": "train_16.jpg",
+      "person_before": 2,
+      "person_after": 1,
+      "coco_id_before": 22,
+      "coco_id_after": 23,
+      "cvat_shape_id": 467,
+      "changes": [
+        {
+          "keypoint": "right_eye",
+          "before": [
+            364.72,
+            108.57,
+            2
+          ],
+          "after": [
+            364.72,
+            108.57,
+            1
+          ]
+        },
+        {
+          "keypoint": "right_ear",
+          "before": [
+            361.28,
+            113.33,
+            2
+          ],
+          "after": [
+            361.28,
+            113.33,
+            1
+          ]
+        }
+      ],
+      "reason": "The white-shirted player faces away. Rear head/hair hide the right eye and ear; preserve existing pixel estimates and change only v=2 to v=1. Anatomical sides, person identity, and high-OKS body geometry remain consistent."
+    },
+    {
+      "image": "train_20.jpg",
+      "person_before": 1,
+      "person_after": 1,
+      "coco_id_before": 27,
+      "coco_id_after": 29,
+      "cvat_shape_id": 574,
+      "changes": [
+        {
+          "keypoint": "left_eye",
+          "before": [
+            228.41,
+            74.61,
+            2
+          ],
+          "after": [
+            228.41,
+            74.61,
+            1
+          ]
+        },
+        {
+          "keypoint": "right_eye",
+          "before": [
+            215.34,
+            74.04,
+            2
+          ],
+          "after": [
+            215.34,
+            74.04,
+            1
+          ]
+        },
+        {
+          "keypoint": "left_ear",
+          "before": [
+            234.63,
+            75.88,
+            2
+          ],
+          "after": [
+            234.63,
+            75.88,
+            1
+          ]
+        },
+        {
+          "keypoint": "right_ear",
+          "before": [
+            201.1,
+            78.53,
+            2
+          ],
+          "after": [
+            201.1,
+            78.53,
+            1
+          ]
+        }
+      ],
+      "reason": "Enlarged original shows opaque sunglasses over both eyes and helmet padding over both ears. Retain in-frame pixel estimates and use v=1 for occlusion. Windshield reflections and motorcycle occlusion do not justify moving in-frame hidden joints to (0,0,0)."
+    }
+  ],
+  "new_people": [
+    {
+      "image": "train_13.jpg",
+      "person_after": 1,
+      "coco_id_after": 16,
+      "cvat_shape_id": 592,
+      "keypoints": [
+        [
+          44,
+          111,
+          1
+        ],
+        [
+          43,
+          108,
+          1
+        ],
+        [
+          45,
+          109,
+          1
+        ],
+        [
+          40,
+          108,
+          1
+        ],
+        [
+          44,
+          107,
+          2
+        ],
+        [
+          33,
+          121,
+          2
+        ],
+        [
+          44,
+          123,
+          2
+        ],
+        [
+          29,
+          143,
+          1
+        ],
+        [
+          38,
+          149,
+          2
+        ],
+        [
+          34,
+          150,
+          1
+        ],
+        [
+          55,
+          150,
+          2
+        ],
+        [
+          30,
+          170,
+          2
+        ],
+        [
+          40,
+          171,
+          2
+        ],
+        [
+          32,
+          200,
+          2
+        ],
+        [
+          40,
+          204,
+          2
+        ],
+        [
+          21,
+          229,
+          2
+        ],
+        [
+          39,
+          235,
+          2
+        ]
+      ],
+      "description": "Distant blue-shirted person near the left edge; new person distinct from main man and beige-shirted man.",
+      "reason": "Evaluator reports this gold person missing. Reviewed enlarged original: torso and legs discernible; face/far arm are uncertain or hidden in the profile and get v1 estimates instead of gold v0. Visible landmarks use gold feedback as a spatial reference."
+    },
+    {
+      "image": "train_13.jpg",
+      "person_after": 3,
+      "coco_id_after": 18,
+      "cvat_shape_id": 593,
+      "keypoints": [
+        [
+          152,
+          45,
+          2
+        ],
+        [
+          154,
+          42,
+          2
+        ],
+        [
+          147,
+          42,
+          2
+        ],
+        [
+          153,
+          42,
+          1
+        ],
+        [
+          133,
+          43,
+          2
+        ],
+        [
+          163,
+          77,
+          1
+        ],
+        [
+          109,
+          79,
+          2
+        ],
+        [
+          159,
+          123,
+          1
+        ],
+        [
+          94,
+          125,
+          2
+        ],
+        [
+          157,
+          163,
+          1
+        ],
+        [
+          92,
+          173,
+          2
+        ],
+        [
+          155,
+          166,
+          1
+        ],
+        [
+          119,
+          167,
+          2
+        ],
+        [
+          151,
+          229,
+          1
+        ],
+        [
+          121,
+          230,
+          2
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "description": "Beige-shirted man behind and left of main man; independent skeleton with far side obscured by foreground man.",
+      "reason": "Evaluator reports this person missing. Reviewed enlarged original: near arm/leg visible, far arm and left hip/knee hidden by main man. Gold v0 for hidden ear/elbow/wrist restored to v1; ankles are genuinely outside bottom crop and remain v0."
+    }
+  ]
+}
