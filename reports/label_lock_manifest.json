@@ -106,5 +106,29 @@
     "reports/review_evidence/smaller_person.jpg": "7123c13e9e98bc84879f7305e112b4d3b1c5592e38d397ff091d71d129ea78f4",
     "reports/review_evidence/train_overview.jpg": "c74205d606287396e196196c47053e0e80aaa0e51625bee4edce471893722ac2",
     "reports/review_evidence/wrist_person_mix.jpg": "dea12da4f38e5b1f3b3ab2525eeafb2b7a356a5ae2ee5be51c894422da11f236"
-  }
+  },
+  "label_lock_commit": "d9ded1f77e8f42413d40741e22718b8748aa49b0",
+  "git_label_sha256": {
+    "dataset/labels/train/train_01.txt": "b46ab07c0cae251b930f490bce4d8c2f0498353247339039b73487998ef36ddf",
+    "dataset/labels/train/train_02.txt": "2bdd5f568b62ef45133e606c18d771bbd4096e532cf8dba79ad8a4b120cb2230",
+    "dataset/labels/train/train_03.txt": "79598701f7035d1b8d2ce0bc42dd2118f2a3059f444a1b2715abf370646a471a",
+    "dataset/labels/train/train_04.txt": "feab8e5eed679e5f7dd67da8bab74b71bd79b2f8ffef137d2ca5dbce99e6d9e9",
+    "dataset/labels/train/train_05.txt": "f35caa9927318b79f11f0703b4df67a3d126f1c358ab993bebac735ee1b7a82d",
+    "dataset/labels/train/train_06.txt": "d70f2db6344979d25ee92ba401106d655462a5037de3c528c484f878e54cd1e7",
+    "dataset/labels/train/train_07.txt": "658162f803499a843d1b3c5211011f3b851617db27b928b4a38cdefd7a6d0974",
+    "dataset/labels/train/train_08.txt": "86b311ff76d2c6acffa54bb9c35c37ba370c56513b78c8df542bec6f6b2b4a50",
+    "dataset/labels/train/train_09.txt": "1dd22ef232b860f8ee8dfd673cf1d7d7e1b8c6fae0519f8e52e7a33bf58d3981",
+    "dataset/labels/train/train_10.txt": "00c42acb457b99528268e6f45af738edfdc8fa78cb6422d486809bf71d7fce27",
+    "dataset/labels/train/train_11.txt": "51108188921769acfd7429664730457322be1d5b4282a5f8230164912aa3d47f",
+    "dataset/labels/train/train_12.txt": "917636e86099ec9bfec4fcc250823a176dc9c35c29dc76146207af243fb3a5e1",
+    "dataset/labels/train/train_13.txt": "721aaaea36b973442c0c5e2cb349f39e5b483d2783715547fa7af6209ee25fc0",
+    "dataset/labels/train/train_14.txt": "af1960b40adf1ea06266484a471304582ec6d471447b366bac0f6a576d307f7d",
+    "dataset/labels/train/train_15.txt": "e3f89da9d0b8228b5af9b56843015d89cd4e68a00d10a9b04bf995891c53fda3",
+    "dataset/labels/train/train_16.txt": "f82bc8a4252c258ad6eabd0a764deb9ab3e27f3690a8789b4b7d001e9c7580a9",
+    "dataset/labels/train/train_17.txt": "ca0f48532522360540f11cff36652271ceb7cb229d93ad73c3a690d95a5c9d02",
+    "dataset/labels/train/train_18.txt": "0f0dc469c85f5e55643cc697e076e72f43128cf87ec979de9c6f0354d0a8f209",
+    "dataset/labels/train/train_19.txt": "80c8199e654025cf0bb08744cf38cd8b2924a783696c959aadd4dffe79a249a2",
+    "dataset/labels/train/train_20.txt": "422d699886f5875ad85c11284c045671db0eb2376832f2c0dbb58b5f53a976e0"
+  },
+  "hash_note": "label_sha256 describes unchanged Windows working-tree file bytes (CRLF). git_label_sha256 describes Git-committed bytes (LF after core.autocrlf normalization). All label text, coordinates and visibility match exactly after newline normalization. No locked labels were changed."
 }
