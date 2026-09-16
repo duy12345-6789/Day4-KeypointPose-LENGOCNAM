@@ -70,3 +70,9 @@ Commit cuối lượt kiểm khóa nguyên export người gán và 20 file YOLO
 ## 6. Rework sau protected release
 
 Đã đánh giá gold, sửa trong CVAT, export thật và convert lại sau khi người dùng yêu cầu lượt rework. Bản hiện tại có 20 ảnh, 29 skeleton; chỉ số trước–sau và từng lỗi đã sửa nằm trong [REPORT.md](reports/REPORT.md), hash hiện tại trong [rework manifest](reports/rework_manifest.json). Manifest khóa cũ giữ nguyên để truy lại nhãn tại commit `d9ded1f`, không mô tả hash nhãn mới. Khớp bị che nhưng trong ảnh vẫn giữ `v=1` và chấm ước lượng dù gold COCO không gán; không dùng gold để train.
+
+## 7. Evidence sau khi đối chiếu model
+
+Ở train_13, người áo xanh sát mép trái (người 1 trong nhãn hiện tại), left_wrist bị thân che nhưng vị trí cuối cẳng tay vẫn ở trong ảnh. Nhãn giữ điểm `(34,150)` với v1; confidence model khoảng 0.0404 khiến notebook loại dự đoán theo ngưỡng 0.05. **Confidence thấp của model không phải bằng chứng khớp ở ngoài khung**: kiểm vị trí giải phẫu và mép ảnh trước khi quyết định v1/v0. [Ảnh model](reports/model_evidence/train/train_13.jpg) · [ảnh phủ nhãn](reports/model_evidence/train/train_13_labels.jpg).
+
+Tương tự, không thêm người vào annotation chỉ để khớp số bbox model: train_03 có dự đoán trùng người và bbox ở vật hình em bé dưới xe. Rule dùng để kiểm là một người thật phân biệt được → một skeleton riêng; danh tính từng chi theo đúng người. Bài cá nhân nên rule này được bổ sung từ tự kiểm, không ghi thành thỏa thuận với partner.

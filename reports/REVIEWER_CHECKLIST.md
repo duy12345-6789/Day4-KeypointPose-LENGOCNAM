@@ -1,8 +1,8 @@
-# Reviewer checklist — tự kiểm bài cá nhân tại mốc khóa
+# Reviewer checklist — bài cá nhân Ngày 4
 
 Người gán: LÊ NGỌC NAM. Người kiểm: Codex hỗ trợ đọc ảnh gốc và ảnh phủ. Ngày: 2026-09-16.
 
-> Đây là checklist lịch sử ở commit `d9ded1f`, trước protected-release rework. Các mục “chưa đạt” bên dưới mô tả bản khóa ban đầu; trạng thái đã sửa và đánh giá mới nằm trong [REPORT.md](REPORT.md).
+> Các mục từ “Kết quả” đến “Khóa nhãn” giữ checklist lịch sử ở commit `d9ded1f`, trước protected-release rework. Checklist bản nộp hiện tại nằm ở “Kiểm cuối sau rework và Colab” cuối file; [REPORT.md](REPORT.md) ghi từng sửa đổi và kết quả mới.
 
 Đây là tự kiểm, không có partner độc lập hay chấm điểm với gold. Bản COCO/CVAT không bị chỉnh; YOLO là bản chuyển đổi bằng công cụ có sẵn.
 
@@ -34,3 +34,25 @@ Danh sách ảnh, người, khớp, hiện trạng và cách xử lý nằm tron
 ## Khóa nhãn
 
 Khóa nguyên nhãn người gán theo yêu cầu; không sửa sau commit cho tới protected release. [Manifest SHA-256](label_lock_manifest.json) ghi hash export và từng file YOLO. Không chấm với gold hoặc partner.
+
+## Kiểm cuối sau rework và Colab
+
+Ngày: 2026-09-16. Tự kiểm cá nhân với hỗ trợ phân tích của Codex; partner độc lập: **không áp dụng**.
+
+| # | Mục kiểm bản nộp | Kết quả | Bằng chứng |
+| ---: | --- | --- | --- |
+| 1 | Đủ 20 ảnh, mọi người có 17 mục | Đạt cấu trúc và đầy đủ theo bộ tham chiếu | 20 file/29 người; ghép gold 29/29, thiếu/thừa 0. Hai người nền train_13 đã thêm trong CVAT. |
+| 2 | Danh tính trái/phải | Đã kiểm | Evaluator không có finding đảo trái/phải; hai cảnh báo hướng mắt train_02 đã xem ảnh người quay đầu. |
+| 3 | Không kéo chi sang người khác | Đã sửa ca xác nhận | Cổ tay train_04 đã sửa theo đúng cẳng tay; không còn finding nhầm người sau rework. Model nhầm cổ tay train_03 không được dùng để sửa nhãn. |
+| 4 | Khớp bị che trong ảnh dùng v1 và có chấm | Đã kiểm, đã sửa ca xác nhận | Phục hồi điểm train_03/09; tổng v1 146. Model confidence thấp không làm nhãn thành outside. |
+| 5 | v0 cho khớp ngoài ảnh | Đã kiểm theo từng khớp | 33 điểm v0; ảnh cắt ở đùi/chân 01/04/10/13 đã đối chiếu, không đổi v0 hàng loạt theo cảnh báo bbox. |
+| 6 | v2 và vị trí giải phẫu | Đã rà và sửa ca có bằng chứng | Tai sau mũ, vai trên tựa xe, cổ chân trên cẳng chân đã sửa; giới hạn các điểm mờ/ước lượng ghi trong REPORT. |
+| 7 | COCO 51 số/người | Đạt | 29/29 người; num_keypoints đúng số v>0; tọa độ/cờ khớp YOLO. |
+| 8 | YOLO 56 số/dòng, kpt_shape [17,3] | Đạt | 20 file/29 dòng; [data.yaml](../data.yaml) đúng cấu hình. |
+| 9 | Visibility JSON/Markdown | Đạt | [Bảng hiện tại](visibility_report.md): 314 v2 / 146 v1 / 33 v0; dữ liệu đếm lại khớp JSON. |
+| 10 | Mini guideline và rule evidence | Đã điền | [GUIDELINE_MINI.md](../GUIDELINE_MINI.md); rule train_09 và trường hợp confidence thấp train_13. |
+| 11 | Lượt kiểm định dạng cuối | Đạt, 8 cảnh báo đã giải thích | Exit code 0, 0 lỗi; [log bản hiện tại](pose_validation_after.log). |
+| 12 | Đánh giá annotation/model và phân tích | Có kết quả thật | [eval_vs_gold.json](../outputs/eval_vs_gold.json), [eval_model.json](../outputs/eval_model.json); bảng mAP và đủ năm câu trả lời trong REPORT. |
+| 13 | Kiểm chéo với partner | Không áp dụng | Bài cá nhân; không chạy compare hoặc tạo số liệu của bạn cùng nhóm. |
+
+[Bảng đủ artifact](SUBMISSION_CHECKLIST.md). Những trạng thái “chưa đạt/chưa sửa” ở phần lịch sử là bản trước release; các ca rework cụ thể và hash bản hiện tại nằm trong [REPORT.md](REPORT.md), [rework_changes.json](rework_changes.json) và [manifest bản nộp](../outputs/submission_manifest.json).

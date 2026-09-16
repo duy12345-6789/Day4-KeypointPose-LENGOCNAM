@@ -1,0 +1,1736 @@
+{
+  "source": "outputs/train_model_review.json",
+  "table_score_precision": "3 decimal places from notebook",
+  "image_mean_definition": "mean OKS over matched people only; extra/missing people reported separately",
+  "model_vs_labels_by_image": [
+    {
+      "image": "train_06.jpg",
+      "matched_people": 1,
+      "mean_oks": 0.63,
+      "min_pair_oks": 0.63,
+      "pair_oks": [
+        0.63
+      ]
+    },
+    {
+      "image": "train_02.jpg",
+      "matched_people": 1,
+      "mean_oks": 0.723,
+      "min_pair_oks": 0.723,
+      "pair_oks": [
+        0.723
+      ]
+    },
+    {
+      "image": "train_14.jpg",
+      "matched_people": 2,
+      "mean_oks": 0.7295,
+      "min_pair_oks": 0.724,
+      "pair_oks": [
+        0.735,
+        0.724
+      ]
+    },
+    {
+      "image": "train_11.jpg",
+      "matched_people": 1,
+      "mean_oks": 0.756,
+      "min_pair_oks": 0.756,
+      "pair_oks": [
+        0.756
+      ]
+    },
+    {
+      "image": "train_13.jpg",
+      "matched_people": 3,
+      "mean_oks": 0.7719999999999999,
+      "min_pair_oks": 0.53,
+      "pair_oks": [
+        0.965,
+        0.821,
+        0.53
+      ]
+    },
+    {
+      "image": "train_15.jpg",
+      "matched_people": 2,
+      "mean_oks": 0.7735000000000001,
+      "min_pair_oks": 0.686,
+      "pair_oks": [
+        0.861,
+        0.686
+      ]
+    },
+    {
+      "image": "train_03.jpg",
+      "matched_people": 2,
+      "mean_oks": 0.803,
+      "min_pair_oks": 0.67,
+      "pair_oks": [
+        0.936,
+        0.67
+      ]
+    },
+    {
+      "image": "train_10.jpg",
+      "matched_people": 1,
+      "mean_oks": 0.811,
+      "min_pair_oks": 0.811,
+      "pair_oks": [
+        0.811
+      ]
+    },
+    {
+      "image": "train_12.jpg",
+      "matched_people": 1,
+      "mean_oks": 0.824,
+      "min_pair_oks": 0.824,
+      "pair_oks": [
+        0.824
+      ]
+    },
+    {
+      "image": "train_16.jpg",
+      "matched_people": 2,
+      "mean_oks": 0.825,
+      "min_pair_oks": 0.823,
+      "pair_oks": [
+        0.827,
+        0.823
+      ]
+    },
+    {
+      "image": "train_19.jpg",
+      "matched_people": 2,
+      "mean_oks": 0.8315,
+      "min_pair_oks": 0.77,
+      "pair_oks": [
+        0.893,
+        0.77
+      ]
+    },
+    {
+      "image": "train_09.jpg",
+      "matched_people": 1,
+      "mean_oks": 0.85,
+      "min_pair_oks": 0.85,
+      "pair_oks": [
+        0.85
+      ]
+    },
+    {
+      "image": "train_01.jpg",
+      "matched_people": 2,
+      "mean_oks": 0.8694999999999999,
+      "min_pair_oks": 0.831,
+      "pair_oks": [
+        0.908,
+        0.831
+      ]
+    },
+    {
+      "image": "train_08.jpg",
+      "matched_people": 1,
+      "mean_oks": 0.881,
+      "min_pair_oks": 0.881,
+      "pair_oks": [
+        0.881
+      ]
+    },
+    {
+      "image": "train_20.jpg",
+      "matched_people": 1,
+      "mean_oks": 0.885,
+      "min_pair_oks": 0.885,
+      "pair_oks": [
+        0.885
+      ]
+    },
+    {
+      "image": "train_18.jpg",
+      "matched_people": 1,
+      "mean_oks": 0.886,
+      "min_pair_oks": 0.886,
+      "pair_oks": [
+        0.886
+      ]
+    },
+    {
+      "image": "train_05.jpg",
+      "matched_people": 1,
+      "mean_oks": 0.923,
+      "min_pair_oks": 0.923,
+      "pair_oks": [
+        0.923
+      ]
+    },
+    {
+      "image": "train_04.jpg",
+      "matched_people": 2,
+      "mean_oks": 0.9265,
+      "min_pair_oks": 0.904,
+      "pair_oks": [
+        0.949,
+        0.904
+      ]
+    },
+    {
+      "image": "train_17.jpg",
+      "matched_people": 1,
+      "mean_oks": 0.951,
+      "min_pair_oks": 0.951,
+      "pair_oks": [
+        0.951
+      ]
+    },
+    {
+      "image": "train_07.jpg",
+      "matched_people": 1,
+      "mean_oks": 0.952,
+      "min_pair_oks": 0.952,
+      "pair_oks": [
+        0.952
+      ]
+    }
+  ],
+  "labels_vs_gold_by_image": [
+    {
+      "image": "train_06.jpg",
+      "mean_oks": 0.8905,
+      "min_pair_oks": 0.8905
+    },
+    {
+      "image": "train_18.jpg",
+      "mean_oks": 0.8934,
+      "min_pair_oks": 0.8934
+    },
+    {
+      "image": "train_20.jpg",
+      "mean_oks": 0.9108,
+      "min_pair_oks": 0.9108
+    },
+    {
+      "image": "train_15.jpg",
+      "mean_oks": 0.9223,
+      "min_pair_oks": 0.918
+    },
+    {
+      "image": "train_08.jpg",
+      "mean_oks": 0.933,
+      "min_pair_oks": 0.933
+    },
+    {
+      "image": "train_07.jpg",
+      "mean_oks": 0.936,
+      "min_pair_oks": 0.936
+    },
+    {
+      "image": "train_10.jpg",
+      "mean_oks": 0.9435,
+      "min_pair_oks": 0.9435
+    },
+    {
+      "image": "train_12.jpg",
+      "mean_oks": 0.9455,
+      "min_pair_oks": 0.9455
+    },
+    {
+      "image": "train_14.jpg",
+      "mean_oks": 0.95285,
+      "min_pair_oks": 0.9354
+    },
+    {
+      "image": "train_03.jpg",
+      "mean_oks": 0.9537,
+      "min_pair_oks": 0.9497
+    },
+    {
+      "image": "train_01.jpg",
+      "mean_oks": 0.9542999999999999,
+      "min_pair_oks": 0.938
+    },
+    {
+      "image": "train_04.jpg",
+      "mean_oks": 0.95825,
+      "min_pair_oks": 0.9384
+    },
+    {
+      "image": "train_19.jpg",
+      "mean_oks": 0.9594,
+      "min_pair_oks": 0.9487
+    },
+    {
+      "image": "train_02.jpg",
+      "mean_oks": 0.961,
+      "min_pair_oks": 0.961
+    },
+    {
+      "image": "train_11.jpg",
+      "mean_oks": 0.9681,
+      "min_pair_oks": 0.9681
+    },
+    {
+      "image": "train_17.jpg",
+      "mean_oks": 0.9761,
+      "min_pair_oks": 0.9761
+    },
+    {
+      "image": "train_05.jpg",
+      "mean_oks": 0.9767,
+      "min_pair_oks": 0.9767
+    },
+    {
+      "image": "train_09.jpg",
+      "mean_oks": 0.9842,
+      "min_pair_oks": 0.9842
+    },
+    {
+      "image": "train_13.jpg",
+      "mean_oks": 0.9874999999999999,
+      "min_pair_oks": 0.9639
+    },
+    {
+      "image": "train_16.jpg",
+      "mean_oks": 0.98995,
+      "min_pair_oks": 0.9888
+    }
+  ],
+  "count_mismatches": [
+    {
+      "image": "train_03 (số người lệch)",
+      "value": "model 4 / bạn 2"
+    },
+    {
+      "image": "train_10 (số người lệch)",
+      "value": "model 2 / bạn 1"
+    }
+  ],
+  "recomputed_raw_predictions": [
+    {
+      "image": "train_13.jpg",
+      "model_people": 3,
+      "label_people": 3,
+      "pairs": [
+        {
+          "model_person": 1,
+          "label_person": 2,
+          "oks": 0.9648268976399297,
+          "joint_differences": [
+            {
+              "keypoint": "left_hip",
+              "label_xy": [
+                289.83,
+                219.78
+              ],
+              "predicted_xy": [
+                274.1,
+                220.18
+              ],
+              "label_visibility": 1,
+              "model_confidence": 0.9801874756813049,
+              "distance_px": 15.74
+            },
+            {
+              "keypoint": "right_hip",
+              "label_xy": [
+                200.69,
+                224.34
+              ],
+              "predicted_xy": [
+                207.5,
+                219.01
+              ],
+              "label_visibility": 1,
+              "model_confidence": 0.9811340570449829,
+              "distance_px": 8.65
+            },
+            {
+              "keypoint": "right_elbow",
+              "label_xy": [
+                158.93,
+                134.17
+              ],
+              "predicted_xy": [
+                164.78,
+                138.75
+              ],
+              "label_visibility": 2,
+              "model_confidence": 0.9822596311569214,
+              "distance_px": 7.43
+            },
+            {
+              "keypoint": "right_wrist",
+              "label_xy": [
+                233.56,
+                140.34
+              ],
+              "predicted_xy": [
+                227.47,
+                138.14
+              ],
+              "label_visibility": 2,
+              "model_confidence": 0.9965266585350037,
+              "distance_px": 6.48
+            },
+            {
+              "keypoint": "left_shoulder",
+              "label_xy": [
+                303.54,
+                84.4
+              ],
+              "predicted_xy": [
+                297.36,
+                83.08
+              ],
+              "label_visibility": 2,
+              "model_confidence": 0.9974119067192078,
+              "distance_px": 6.32
+            },
+            {
+              "keypoint": "right_shoulder",
+              "label_xy": [
+                186.41,
+                74.7
+              ],
+              "predicted_xy": [
+                192.12,
+                77.23
+              ],
+              "label_visibility": 2,
+              "model_confidence": 0.9982448816299438,
+              "distance_px": 6.24
+            },
+            {
+              "keypoint": "left_wrist",
+              "label_xy": [
+                299.73,
+                156.56
+              ],
+              "predicted_xy": [
+                295.01,
+                156.83
+              ],
+              "label_visibility": 2,
+              "model_confidence": 0.9931885004043579,
+              "distance_px": 4.73
+            },
+            {
+              "keypoint": "left_ear",
+              "label_xy": [
+                281.17,
+                49.91
+              ],
+              "predicted_xy": [
+                280.86,
+                45.83
+              ],
+              "label_visibility": 1,
+              "model_confidence": 0.2508186995983124,
+              "distance_px": 4.1
+            },
+            {
+              "keypoint": "left_elbow",
+              "label_xy": [
+                320.76,
+                143.3
+              ],
+              "predicted_xy": [
+                317.59,
+                142.57
+              ],
+              "label_visibility": 2,
+              "model_confidence": 0.974449872970581,
+              "distance_px": 3.25
+            },
+            {
+              "keypoint": "nose",
+              "label_xy": [
+                264.93,
+                64.78
+              ],
+              "predicted_xy": [
+                263.6,
+                62.44
+              ],
+              "label_visibility": 2,
+              "model_confidence": 0.9981867671012878,
+              "distance_px": 2.69
+            },
+            {
+              "keypoint": "left_eye",
+              "label_xy": [
+                275.21,
+                54.63
+              ],
+              "predicted_xy": [
+                273.34,
+                52.99
+              ],
+              "label_visibility": 2,
+              "model_confidence": 0.9801456332206726,
+              "distance_px": 2.49
+            },
+            {
+              "keypoint": "right_eye",
+              "label_xy": [
+                254.31,
+                52.82
+              ],
+              "predicted_xy": [
+                255.26,
+                51.35
+              ],
+              "label_visibility": 2,
+              "model_confidence": 0.9989412426948547,
+              "distance_px": 1.75
+            },
+            {
+              "keypoint": "right_ear",
+              "label_xy": [
+                234.94,
+                42.06
+              ],
+              "predicted_xy": [
+                235.0,
+                40.87
+              ],
+              "label_visibility": 2,
+              "model_confidence": 0.9880580902099609,
+              "distance_px": 1.19
+            }
+          ]
+        },
+        {
+          "model_person": 2,
+          "label_person": 3,
+          "oks": 0.821029689923704,
+          "joint_differences": [
+            {
+              "keypoint": "left_ear",
+              "label_xy": [
+                153.0,
+                42.0
+              ],
+              "predicted_xy": [
+                0.0,
+                0.0
+              ],
+              "label_visibility": 1,
+              "model_confidence": 0.0251503586769104,
+              "distance_px": null
+            },
+            {
+              "keypoint": "left_knee",
+              "label_xy": [
+                151.0,
+                229.0
+              ],
+              "predicted_xy": [
+                130.93,
+                236.22
+              ],
+              "label_visibility": 1,
+              "model_confidence": 0.8808541893959045,
+              "distance_px": 21.33
+            },
+            {
+              "keypoint": "left_wrist",
+              "label_xy": [
+                157.0,
+                163.0
+              ],
+              "predicted_xy": [
+                143.03,
+                170.23
+              ],
+              "label_visibility": 1,
+              "model_confidence": 0.07304181158542633,
+              "distance_px": 15.73
+            },
+            {
+              "keypoint": "left_hip",
+              "label_xy": [
+                155.0,
+                166.0
+              ],
+              "predicted_xy": [
+                142.96,
+                169.31
+              ],
+              "label_visibility": 1,
+              "model_confidence": 0.9870724081993103,
+              "distance_px": 12.49
+            },
+            {
+              "keypoint": "left_shoulder",
+              "label_xy": [
+                163.0,
+                77.0
+              ],
+              "predicted_xy": [
+                152.51,
+                78.06
+              ],
+              "label_visibility": 1,
+              "model_confidence": 0.9262862801551819,
+              "distance_px": 10.54
+            },
+            {
+              "keypoint": "right_knee",
+              "label_xy": [
+                121.0,
+                230.0
+              ],
+              "predicted_xy": [
+                117.39,
+                238.98
+              ],
+              "label_visibility": 2,
+              "model_confidence": 0.9687288999557495,
+              "distance_px": 9.68
+            },
+            {
+              "keypoint": "left_elbow",
+              "label_xy": [
+                159.0,
+                123.0
+              ],
+              "predicted_xy": [
+                151.49,
+                126.34
+              ],
+              "label_visibility": 1,
+              "model_confidence": 0.10467637330293655,
+              "distance_px": 8.22
+            },
+            {
+              "keypoint": "right_hip",
+              "label_xy": [
+                119.0,
+                167.0
+              ],
+              "predicted_xy": [
+                115.2,
+                169.57
+              ],
+              "label_visibility": 2,
+              "model_confidence": 0.9977438449859619,
+              "distance_px": 4.58
+            },
+            {
+              "keypoint": "right_shoulder",
+              "label_xy": [
+                109.0,
+                79.0
+              ],
+              "predicted_xy": [
+                109.39,
+                75.64
+              ],
+              "label_visibility": 2,
+              "model_confidence": 0.9983341097831726,
+              "distance_px": 3.39
+            },
+            {
+              "keypoint": "nose",
+              "label_xy": [
+                152.0,
+                45.0
+              ],
+              "predicted_xy": [
+                153.75,
+                47.58
+              ],
+              "label_visibility": 2,
+              "model_confidence": 0.9806082248687744,
+              "distance_px": 3.12
+            },
+            {
+              "keypoint": "right_elbow",
+              "label_xy": [
+                94.0,
+                125.0
+              ],
+              "predicted_xy": [
+                91.25,
+                125.06
+              ],
+              "label_visibility": 2,
+              "model_confidence": 0.9897050261497498,
+              "distance_px": 2.75
+            },
+            {
+              "keypoint": "left_eye",
+              "label_xy": [
+                154.0,
+                42.0
+              ],
+              "predicted_xy": [
+                156.32,
+                42.52
+              ],
+              "label_visibility": 2,
+              "model_confidence": 0.6201123595237732,
+              "distance_px": 2.38
+            },
+            {
+              "keypoint": "right_wrist",
+              "label_xy": [
+                92.0,
+                173.0
+              ],
+              "predicted_xy": [
+                91.29,
+                174.57
+              ],
+              "label_visibility": 2,
+              "model_confidence": 0.9729442000389099,
+              "distance_px": 1.72
+            },
+            {
+              "keypoint": "right_eye",
+              "label_xy": [
+                147.0,
+                42.0
+              ],
+              "predicted_xy": [
+                148.53,
+                41.85
+              ],
+              "label_visibility": 2,
+              "model_confidence": 0.993834376335144,
+              "distance_px": 1.54
+            },
+            {
+              "keypoint": "right_ear",
+              "label_xy": [
+                133.0,
+                43.0
+              ],
+              "predicted_xy": [
+                133.15,
+                42.08
+              ],
+              "label_visibility": 2,
+              "model_confidence": 0.9910249710083008,
+              "distance_px": 0.93
+            }
+          ]
+        },
+        {
+          "model_person": 3,
+          "label_person": 1,
+          "oks": 0.529764474984902,
+          "joint_differences": [
+            {
+              "keypoint": "left_wrist",
+              "label_xy": [
+                34.0,
+                150.0
+              ],
+              "predicted_xy": [
+                0.0,
+                0.0
+              ],
+              "label_visibility": 1,
+              "model_confidence": 0.04040247201919556,
+              "distance_px": null
+            },
+            {
+              "keypoint": "left_ankle",
+              "label_xy": [
+                21.0,
+                229.0
+              ],
+              "predicted_xy": [
+                38.56,
+                235.82
+              ],
+              "label_visibility": 2,
+              "model_confidence": 0.9899543523788452,
+              "distance_px": 18.84
+            },
+            {
+              "keypoint": "left_elbow",
+              "label_xy": [
+                29.0,
+                143.0
+              ],
+              "predicted_xy": [
+                44.79,
+                141.18
+              ],
+              "label_visibility": 1,
+              "model_confidence": 0.06119610369205475,
+              "distance_px": 15.9
+            },
+            {
+              "keypoint": "right_ankle",
+              "label_xy": [
+                39.0,
+                235.0
+              ],
+              "predicted_xy": [
+                23.94,
+                235.09
+              ],
+              "label_visibility": 2,
+              "model_confidence": 0.9934868812561035,
+              "distance_px": 15.06
+            },
+            {
+              "keypoint": "left_hip",
+              "label_xy": [
+                30.0,
+                170.0
+              ],
+              "predicted_xy": [
+                39.71,
+                165.36
+              ],
+              "label_visibility": 2,
+              "model_confidence": 0.9464101791381836,
+              "distance_px": 10.76
+            },
+            {
+              "keypoint": "left_knee",
+              "label_xy": [
+                32.0,
+                200.0
+              ],
+              "predicted_xy": [
+                40.84,
+                199.84
+              ],
+              "label_visibility": 2,
+              "model_confidence": 0.9705450534820557,
+              "distance_px": 8.84
+            },
+            {
+              "keypoint": "left_shoulder",
+              "label_xy": [
+                33.0,
+                121.0
+              ],
+              "predicted_xy": [
+                41.68,
+                119.59
+              ],
+              "label_visibility": 2,
+              "model_confidence": 0.7746906280517578,
+              "distance_px": 8.8
+            },
+            {
+              "keypoint": "left_eye",
+              "label_xy": [
+                43.0,
+                108.0
+              ],
+              "predicted_xy": [
+                48.93,
+                103.22
+              ],
+              "label_visibility": 1,
+              "model_confidence": 0.19749611616134644,
+              "distance_px": 7.61
+            },
+            {
+              "keypoint": "left_ear",
+              "label_xy": [
+                40.0,
+                108.0
+              ],
+              "predicted_xy": [
+                46.02,
+                104.07
+              ],
+              "label_visibility": 1,
+              "model_confidence": 0.12304321676492691,
+              "distance_px": 7.18
+            },
+            {
+              "keypoint": "right_elbow",
+              "label_xy": [
+                38.0,
+                149.0
+              ],
+              "predicted_xy": [
+                40.41,
+                142.59
+              ],
+              "label_visibility": 2,
+              "model_confidence": 0.7790895700454712,
+              "distance_px": 6.85
+            },
+            {
+              "keypoint": "right_hip",
+              "label_xy": [
+                40.0,
+                171.0
+              ],
+              "predicted_xy": [
+                36.0,
+                165.62
+              ],
+              "label_visibility": 2,
+              "model_confidence": 0.9784209132194519,
+              "distance_px": 6.71
+            },
+            {
+              "keypoint": "nose",
+              "label_xy": [
+                44.0,
+                111.0
+              ],
+              "predicted_xy": [
+                48.18,
+                106.11
+              ],
+              "label_visibility": 1,
+              "model_confidence": 0.6849673390388489,
+              "distance_px": 6.43
+            },
+            {
+              "keypoint": "right_wrist",
+              "label_xy": [
+                55.0,
+                150.0
+              ],
+              "predicted_xy": [
+                49.97,
+                152.85
+              ],
+              "label_visibility": 2,
+              "model_confidence": 0.568803071975708,
+              "distance_px": 5.78
+            },
+            {
+              "keypoint": "right_shoulder",
+              "label_xy": [
+                44.0,
+                123.0
+              ],
+              "predicted_xy": [
+                38.86,
+                120.49
+              ],
+              "label_visibility": 2,
+              "model_confidence": 0.9620956182479858,
+              "distance_px": 5.72
+            },
+            {
+              "keypoint": "right_eye",
+              "label_xy": [
+                45.0,
+                109.0
+              ],
+              "predicted_xy": [
+                45.93,
+                103.7
+              ],
+              "label_visibility": 1,
+              "model_confidence": 0.6922903656959534,
+              "distance_px": 5.38
+            },
+            {
+              "keypoint": "right_knee",
+              "label_xy": [
+                40.0,
+                204.0
+              ],
+              "predicted_xy": [
+                37.11,
+                200.04
+              ],
+              "label_visibility": 2,
+              "model_confidence": 0.9861077070236206,
+              "distance_px": 4.9
+            },
+            {
+              "keypoint": "right_ear",
+              "label_xy": [
+                44.0,
+                107.0
+              ],
+              "predicted_xy": [
+                41.65,
+                105.48
+              ],
+              "label_visibility": 2,
+              "model_confidence": 0.7735589742660522,
+              "distance_px": 2.8
+            }
+          ]
+        }
+      ],
+      "extra_model_people": [],
+      "missing_label_people": []
+    },
+    {
+      "image": "train_06.jpg",
+      "model_people": 1,
+      "label_people": 1,
+      "pairs": [
+        {
+          "model_person": 1,
+          "label_person": 1,
+          "oks": 0.6297769514721471,
+          "joint_differences": [
+            {
+              "keypoint": "nose",
+              "label_xy": [
+                349.48,
+                172.58
+              ],
+              "predicted_xy": [
+                0.0,
+                0.0
+              ],
+              "label_visibility": 1,
+              "model_confidence": 0.027971923351287842,
+              "distance_px": null
+            },
+            {
+              "keypoint": "left_eye",
+              "label_xy": [
+                347.93,
+                163.42
+              ],
+              "predicted_xy": [
+                0.0,
+                0.0
+              ],
+              "label_visibility": 1,
+              "model_confidence": 0.03988010808825493,
+              "distance_px": null
+            },
+            {
+              "keypoint": "right_eye",
+              "label_xy": [
+                362.32,
+                157.32
+              ],
+              "predicted_xy": [
+                0.0,
+                0.0
+              ],
+              "label_visibility": 1,
+              "model_confidence": 0.005464727059006691,
+              "distance_px": null
+            },
+            {
+              "keypoint": "right_wrist",
+              "label_xy": [
+                344.96,
+                245.38
+              ],
+              "predicted_xy": [
+                0.0,
+                0.0
+              ],
+              "label_visibility": 1,
+              "model_confidence": 0.04400460794568062,
+              "distance_px": null
+            },
+            {
+              "keypoint": "right_elbow",
+              "label_xy": [
+                381.4,
+                234.6
+              ],
+              "predicted_xy": [
+                397.38,
+                259.93
+              ],
+              "label_visibility": 1,
+              "model_confidence": 0.06820789724588394,
+              "distance_px": 29.95
+            },
+            {
+              "keypoint": "right_shoulder",
+              "label_xy": [
+                387.0,
+                210.0
+              ],
+              "predicted_xy": [
+                414.13,
+                206.04
+              ],
+              "label_visibility": 1,
+              "model_confidence": 0.7615911364555359,
+              "distance_px": 27.42
+            },
+            {
+              "keypoint": "left_hip",
+              "label_xy": [
+                326.31,
+                329.18
+              ],
+              "predicted_xy": [
+                348.83,
+                321.57
+              ],
+              "label_visibility": 2,
+              "model_confidence": 0.9872164130210876,
+              "distance_px": 23.77
+            },
+            {
+              "keypoint": "right_hip",
+              "label_xy": [
+                388.42,
+                325.21
+              ],
+              "predicted_xy": [
+                405.82,
+                315.29
+              ],
+              "label_visibility": 1,
+              "model_confidence": 0.8539000153541565,
+              "distance_px": 20.03
+            },
+            {
+              "keypoint": "right_ear",
+              "label_xy": [
+                375.64,
+                154.78
+              ],
+              "predicted_xy": [
+                384.68,
+                169.58
+              ],
+              "label_visibility": 1,
+              "model_confidence": 0.4659227728843689,
+              "distance_px": 17.34
+            },
+            {
+              "keypoint": "left_knee",
+              "label_xy": [
+                283.63,
+                341.25
+              ],
+              "predicted_xy": [
+                281.96,
+                353.88
+              ],
+              "label_visibility": 2,
+              "model_confidence": 0.9763204455375671,
+              "distance_px": 12.74
+            },
+            {
+              "keypoint": "right_knee",
+              "label_xy": [
+                369.56,
+                355.14
+              ],
+              "predicted_xy": [
+                358.05,
+                351.19
+              ],
+              "label_visibility": 1,
+              "model_confidence": 0.5869886875152588,
+              "distance_px": 12.17
+            },
+            {
+              "keypoint": "left_shoulder",
+              "label_xy": [
+                326.99,
+                216.87
+              ],
+              "predicted_xy": [
+                337.1,
+                210.65
+              ],
+              "label_visibility": 2,
+              "model_confidence": 0.9974148273468018,
+              "distance_px": 11.87
+            },
+            {
+              "keypoint": "left_ankle",
+              "label_xy": [
+                264.44,
+                418.82
+              ],
+              "predicted_xy": [
+                264.87,
+                430.03
+              ],
+              "label_visibility": 2,
+              "model_confidence": 0.9258278012275696,
+              "distance_px": 11.22
+            },
+            {
+              "keypoint": "left_elbow",
+              "label_xy": [
+                299.58,
+                274.3
+              ],
+              "predicted_xy": [
+                303.13,
+                267.06
+              ],
+              "label_visibility": 2,
+              "model_confidence": 0.9922588467597961,
+              "distance_px": 8.06
+            },
+            {
+              "keypoint": "right_ankle",
+              "label_xy": [
+                361.96,
+                404.92
+              ],
+              "predicted_xy": [
+                363.49,
+                412.32
+              ],
+              "label_visibility": 1,
+              "model_confidence": 0.5574259757995605,
+              "distance_px": 7.56
+            },
+            {
+              "keypoint": "left_ear",
+              "label_xy": [
+                337.89,
+                167.02
+              ],
+              "predicted_xy": [
+                341.61,
+                173.04
+              ],
+              "label_visibility": 1,
+              "model_confidence": 0.7987205982208252,
+              "distance_px": 7.07
+            },
+            {
+              "keypoint": "left_wrist",
+              "label_xy": [
+                263.57,
+                292.04
+              ],
+              "predicted_xy": [
+                269.57,
+                293.89
+              ],
+              "label_visibility": 2,
+              "model_confidence": 0.9269506931304932,
+              "distance_px": 6.28
+            }
+          ]
+        }
+      ],
+      "extra_model_people": [],
+      "missing_label_people": []
+    },
+    {
+      "image": "train_03.jpg",
+      "model_people": 4,
+      "label_people": 2,
+      "pairs": [
+        {
+          "model_person": 1,
+          "label_person": 1,
+          "oks": 0.9362544240209767,
+          "joint_differences": [
+            {
+              "keypoint": "right_ankle",
+              "label_xy": [
+                253.14,
+                482.89
+              ],
+              "predicted_xy": [
+                297.25,
+                464.68
+              ],
+              "label_visibility": 1,
+              "model_confidence": 0.9359868168830872,
+              "distance_px": 47.72
+            },
+            {
+              "keypoint": "right_wrist",
+              "label_xy": [
+                217.91,
+                154.92
+              ],
+              "predicted_xy": [
+                239.31,
+                170.39
+              ],
+              "label_visibility": 2,
+              "model_confidence": 0.913121223449707,
+              "distance_px": 26.41
+            },
+            {
+              "keypoint": "left_hip",
+              "label_xy": [
+                342.46,
+                300.84
+              ],
+              "predicted_xy": [
+                342.78,
+                281.46
+              ],
+              "label_visibility": 2,
+              "model_confidence": 0.9983921647071838,
+              "distance_px": 19.38
+            },
+            {
+              "keypoint": "right_hip",
+              "label_xy": [
+                287.6,
+                296.35
+              ],
+              "predicted_xy": [
+                291.09,
+                278.05
+              ],
+              "label_visibility": 2,
+              "model_confidence": 0.9968898892402649,
+              "distance_px": 18.63
+            },
+            {
+              "keypoint": "right_knee",
+              "label_xy": [
+                271.88,
+                389.62
+              ],
+              "predicted_xy": [
+                284.2,
+                381.19
+              ],
+              "label_visibility": 2,
+              "model_confidence": 0.9924444556236267,
+              "distance_px": 14.93
+            },
+            {
+              "keypoint": "left_knee",
+              "label_xy": [
+                337.97,
+                399.73
+              ],
+              "predicted_xy": [
+                335.5,
+                386.28
+              ],
+              "label_visibility": 2,
+              "model_confidence": 0.9967821836471558,
+              "distance_px": 13.68
+            },
+            {
+              "keypoint": "left_shoulder",
+              "label_xy": [
+                388.05,
+                140.21
+              ],
+              "predicted_xy": [
+                375.06,
+                142.91
+              ],
+              "label_visibility": 2,
+              "model_confidence": 0.997819185256958,
+              "distance_px": 13.27
+            },
+            {
+              "keypoint": "left_wrist",
+              "label_xy": [
+                349.28,
+                227.9
+              ],
+              "predicted_xy": [
+                343.13,
+                219.44
+              ],
+              "label_visibility": 2,
+              "model_confidence": 0.9934872388839722,
+              "distance_px": 10.46
+            },
+            {
+              "keypoint": "left_elbow",
+              "label_xy": [
+                401.57,
+                205.39
+              ],
+              "predicted_xy": [
+                402.99,
+                199.92
+              ],
+              "label_visibility": 2,
+              "model_confidence": 0.9899848699569702,
+              "distance_px": 5.65
+            },
+            {
+              "keypoint": "right_elbow",
+              "label_xy": [
+                259.93,
+                189.67
+              ],
+              "predicted_xy": [
+                262.51,
+                194.24
+              ],
+              "label_visibility": 2,
+              "model_confidence": 0.9111926555633545,
+              "distance_px": 5.25
+            },
+            {
+              "keypoint": "nose",
+              "label_xy": [
+                322.89,
+                96.38
+              ],
+              "predicted_xy": [
+                318.11,
+                95.62
+              ],
+              "label_visibility": 2,
+              "model_confidence": 0.9977794289588928,
+              "distance_px": 4.84
+            },
+            {
+              "keypoint": "left_ankle",
+              "label_xy": [
+                339.87,
+                477.28
+              ],
+              "predicted_xy": [
+                343.85,
+                479.92
+              ],
+              "label_visibility": 2,
+              "model_confidence": 0.931997537612915,
+              "distance_px": 4.78
+            },
+            {
+              "keypoint": "right_shoulder",
+              "label_xy": [
+                291.41,
+                142.45
+              ],
+              "predicted_xy": [
+                295.69,
+                144.05
+              ],
+              "label_visibility": 2,
+              "model_confidence": 0.9974908828735352,
+              "distance_px": 4.57
+            },
+            {
+              "keypoint": "right_ear",
+              "label_xy": [
+                309.28,
+                99.18
+              ],
+              "predicted_xy": [
+                309.35,
+                95.22
+              ],
+              "label_visibility": 1,
+              "model_confidence": 0.09167558699846268,
+              "distance_px": 3.96
+            },
+            {
+              "keypoint": "left_ear",
+              "label_xy": [
+                347.73,
+                93.56
+              ],
+              "predicted_xy": [
+                348.51,
+                96.0
+              ],
+              "label_visibility": 2,
+              "model_confidence": 0.9923734068870544,
+              "distance_px": 2.56
+            },
+            {
+              "keypoint": "left_eye",
+              "label_xy": [
+                330.65,
+                87.66
+              ],
+              "predicted_xy": [
+                328.77,
+                88.35
+              ],
+              "label_visibility": 2,
+              "model_confidence": 0.9978812336921692,
+              "distance_px": 2.01
+            },
+            {
+              "keypoint": "right_eye",
+              "label_xy": [
+                314.01,
+                88.78
+              ],
+              "predicted_xy": [
+                313.45,
+                88.04
+              ],
+              "label_visibility": 2,
+              "model_confidence": 0.9523652195930481,
+              "distance_px": 0.93
+            }
+          ]
+        },
+        {
+          "model_person": 3,
+          "label_person": 2,
+          "oks": 0.6695367800254313,
+          "joint_differences": [
+            {
+              "keypoint": "right_wrist",
+              "label_xy": [
+                304.36,
+                222.25
+              ],
+              "predicted_xy": [
+                219.46,
+                159.56
+              ],
+              "label_visibility": 1,
+              "model_confidence": 0.8449878096580505,
+              "distance_px": 105.54
+            },
+            {
+              "keypoint": "left_wrist",
+              "label_xy": [
+                272.93,
+                214.39
+              ],
+              "predicted_xy": [
+                229.44,
+                165.8
+              ],
+              "label_visibility": 1,
+              "model_confidence": 0.3083784878253937,
+              "distance_px": 65.2
+            },
+            {
+              "keypoint": "right_hip",
+              "label_xy": [
+                241.97,
+                325.87
+              ],
+              "predicted_xy": [
+                234.93,
+                273.43
+              ],
+              "label_visibility": 2,
+              "model_confidence": 0.9787063002586365,
+              "distance_px": 52.91
+            },
+            {
+              "keypoint": "left_hip",
+              "label_xy": [
+                294.9,
+                321.38
+              ],
+              "predicted_xy": [
+                273.17,
+                277.56
+              ],
+              "label_visibility": 1,
+              "model_confidence": 0.9065163135528564,
+              "distance_px": 48.91
+            },
+            {
+              "keypoint": "left_ankle",
+              "label_xy": [
+                312.5,
+                454.82
+              ],
+              "predicted_xy": [
+                265.77,
+                466.7
+              ],
+              "label_visibility": 1,
+              "model_confidence": 0.8706274628639221,
+              "distance_px": 48.21
+            },
+            {
+              "keypoint": "left_knee",
+              "label_xy": [
+                307.25,
+                386.98
+              ],
+              "predicted_xy": [
+                269.52,
+                377.64
+              ],
+              "label_visibility": 1,
+              "model_confidence": 0.8977720737457275,
+              "distance_px": 38.87
+            },
+            {
+              "keypoint": "right_elbow",
+              "label_xy": [
+                251.11,
+                225.54
+              ],
+              "predicted_xy": [
+                234.81,
+                192.72
+              ],
+              "label_visibility": 2,
+              "model_confidence": 0.9185104370117188,
+              "distance_px": 36.65
+            },
+            {
+              "keypoint": "left_elbow",
+              "label_xy": [
+                309.34,
+                210.94
+              ],
+              "predicted_xy": [
+                278.07,
+                203.48
+              ],
+              "label_visibility": 1,
+              "model_confidence": 0.19166913628578186,
+              "distance_px": 32.15
+            },
+            {
+              "keypoint": "right_knee",
+              "label_xy": [
+                222.88,
+                391.47
+              ],
+              "predicted_xy": [
+                225.38,
+                374.12
+              ],
+              "label_visibility": 1,
+              "model_confidence": 0.9721998572349548,
+              "distance_px": 17.53
+            },
+            {
+              "keypoint": "left_shoulder",
+              "label_xy": [
+                309.1,
+                161.46
+              ],
+              "predicted_xy": [
+                294.45,
+                157.92
+              ],
+              "label_visibility": 1,
+              "model_confidence": 0.8491275906562805,
+              "distance_px": 15.08
+            },
+            {
+              "keypoint": "right_ankle",
+              "label_xy": [
+                197.42,
+                469.42
+              ],
+              "predicted_xy": [
+                206.19,
+                467.62
+              ],
+              "label_visibility": 2,
+              "model_confidence": 0.9488195180892944,
+              "distance_px": 8.96
+            },
+            {
+              "keypoint": "right_shoulder",
+              "label_xy": [
+                245.74,
+                160.34
+              ],
+              "predicted_xy": [
+                244.76,
+                152.73
+              ],
+              "label_visibility": 2,
+              "model_confidence": 0.991047203540802,
+              "distance_px": 7.67
+            },
+            {
+              "keypoint": "left_ear",
+              "label_xy": [
+                301.28,
+                127.34
+              ],
+              "predicted_xy": [
+                296.38,
+                123.81
+              ],
+              "label_visibility": 1,
+              "model_confidence": 0.32240375876426697,
+              "distance_px": 6.04
+            },
+            {
+              "keypoint": "left_eye",
+              "label_xy": [
+                293.1,
+                120.22
+              ],
+              "predicted_xy": [
+                289.11,
+                119.5
+              ],
+              "label_visibility": 2,
+              "model_confidence": 0.9755945801734924,
+              "distance_px": 4.06
+            },
+            {
+              "keypoint": "nose",
+              "label_xy": [
+                280.78,
+                128.1
+              ],
+              "predicted_xy": [
+                280.22,
+                124.72
+              ],
+              "label_visibility": 2,
+              "model_confidence": 0.9951272010803223,
+              "distance_px": 3.42
+            },
+            {
+              "keypoint": "right_eye",
+              "label_xy": [
+                272.97,
+                119.1
+              ],
+              "predicted_xy": [
+                274.25,
+                116.19
+              ],
+              "label_visibility": 2,
+              "model_confidence": 0.995713472366333,
+              "distance_px": 3.18
+            },
+            {
+              "keypoint": "right_ear",
+              "label_xy": [
+                262.54,
+                118.36
+              ],
+              "predicted_xy": [
+                260.4,
+                116.2
+              ],
+              "label_visibility": 2,
+              "model_confidence": 0.8661266565322876,
+              "distance_px": 3.04
+            }
+          ]
+        }
+      ],
+      "extra_model_people": [
+        2,
+        4
+      ],
+      "missing_label_people": []
+    }
+  ],
+  "training": {
+    "logged_epochs": 39,
+    "max_csv_pose_map50_95": 0.7023,
+    "max_pose_epochs": [
+      9,
+      10
+    ],
+    "last_epoch_pose_map50_95": 0.09008,
+    "last_epoch_box_map50_95": 0.14466
+  }
+}

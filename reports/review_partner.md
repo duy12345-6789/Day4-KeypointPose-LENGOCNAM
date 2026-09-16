@@ -1,8 +1,8 @@
-# Biên bản tự kiểm — bài cá nhân tại mốc khóa
+# Biên bản tự kiểm — bài cá nhân Ngày 4
 
 Người gán: LÊ NGỌC NAM. Người kiểm: Codex hỗ trợ kiểm ảnh gốc và ảnh phủ. Ngày: 2026-09-16.
 
-> Biên bản này ghi bản khóa `d9ded1f`, trước protected-release rework. Các trạng thái “chưa sửa” là trạng thái tại mốc đó; xem [REPORT.md](REPORT.md) và [rework_changes.json](rework_changes.json) cho sửa đổi sau release.
+> Phần đến “Kết luận và khóa” ghi bản khóa `d9ded1f`, trước protected-release rework. Các trạng thái “chưa sửa” thuộc mốc đó; phần “Kiểm bản nộp sau rework và Colab” cuối file ghi trạng thái hiện tại.
 
 **Partner: không áp dụng.** Người gán làm cá nhân theo yêu cầu; không có kiểm chéo độc lập, không chạy `--compare`, không tạo bảng giả hoặc chấm với partner/gold.
 
@@ -63,3 +63,16 @@ Các audit chi tiết theo nhóm ảnh được lưu trong `review_evidence/audi
 Bản nhãn **đạt định dạng**, nhưng kiểm hình dáng và độ đầy đủ còn các mục chưa đạt. Lỗi rõ là dùng outside cho khớp bị che, một cổ tay lẫn người và người nền bỏ sót. Chưa có bằng chứng đủ chắc để kết luận đảo trái/phải toàn thân ở train_02.
 
 Khóa nguyên export người gán và bản YOLO chuyển đổi bằng commit cuối lượt kiểm, theo phạm vi người dùng đã làm xong annotation và yêu cầu thực hiện các phần còn lại. Hash nguồn và từng nhãn nằm trong [label_lock_manifest.json](label_lock_manifest.json). Sau mốc commit không sửa nhãn cho tới protected release. Commit này bảo toàn bài nộp và các phát hiện, không chứng nhận chất lượng đã đạt hết checklist.
+
+## Kiểm bản nộp sau rework và Colab
+
+Ngày 2026-09-16. **Partner vẫn không áp dụng** vì bài làm cá nhân. Phần này là tự kiểm với hỗ trợ phân tích của Codex, không phải kiểm chéo hoặc chấm của một bạn cùng nhóm.
+
+- Sau protected release đã sửa 57 điểm trên 17 skeleton hiện có và thêm hai người nền train_13 qua CVAT; export COCO thật và convert lại được 20 nhãn/29 skeleton. [Chi tiết](rework_changes.json).
+- Những ca visibility train_03/09, cổ tay lẫn người train_04, vai train_06, cổ chân train_08/12, tai/khuỷu train_15 và các ca khác có bằng chứng đã được xử lý. JSON sau rework ghép 29/29 với gold, không thiếu/thừa người và không còn finding lỗi vị trí; chẩn đoán cờ khác gold giữ riêng.
+- Lượt kiểm cuối có 0 lỗi cấu trúc và 8 cảnh báo. [Log sau rework](pose_validation_after.log) ghi đúng bản hiện tại; cảnh báo bbox cắt chân và người quay đầu không tự chứng minh nhãn sai.
+- Kết quả Colab dùng đúng hash 20 nhãn rework. Pose_mAP50–95 0.6853 → 0.6908; box_mAP50–95 0.8119 → 0.8041. [JSON model gốc](../outputs/eval_model.json).
+- Đã xem 10 ảnh dự đoán test và ba ảnh train 13/06/03. Train_13 có cặp model–nhãn thấp nhất; train_06 thấp nhất theo trung bình ảnh; train_03 có dự đoán trùng người/ở vật hình em bé và cổ tay người sau đi sang tay người trước. Nhãn không bị sửa theo model.
+- [REPORT.md](REPORT.md) đã có bảng model và năm câu phân tích, chỉ rõ cách tính OKS và giới hạn ảnh mờ/CSV. [Reviewer checklist](REVIEWER_CHECKLIST.md) và [bảng artifact](SUBMISSION_CHECKLIST.md) ghi bản nộp cuối.
+
+Các ảnh ước lượng bị che và các lệch nhỏ chưa có bằng chứng đủ chắc vẫn có giới hạn đã nêu; không biến việc hết finding evaluator thành khẳng định mọi pixel đều đúng. Giữ luật lớp: khớp bị che còn trong khung có chấm ước lượng v1, kể cả khi gold COCO không gán hoặc model confidence thấp.

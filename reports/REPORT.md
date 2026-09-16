@@ -1,4 +1,4 @@
-# Báo cáo Ngày 4 — phản hồi OKS và rework
+# Báo cáo Ngày 4 — gán nhãn, rework và đánh giá pose
 
 Họ tên: LÊ NGỌC NAM. Hình thức: cá nhân. Ngày: 2026-09-16.
 
@@ -109,7 +109,66 @@ Quy tắc evidence đã dùng: nếu vai–cẳng tay cho thấy cổ tay còn t
 
 ## 4. Model
 
-Không chạy train, fine-tune hoặc đánh giá model trong phạm vi rework này; không có số liệu mAP để điền. Gold chỉ là đầu vào evaluator annotation, không được đưa vào dataset train hay huấn luyện model. Những câu hỏi so model trước/sau trong template nằm ngoài yêu cầu hiện tại và chưa có dữ liệu.
+Đã nhận kết quả chạy Colab từ `Day4-Colab-results.zip` do người gán gửi. Model là `yolo26n-pose.pt`; fine-tune dùng 20 ảnh train và nhãn đã rework, đánh giá dùng 10 ảnh test phát sẵn theo `val` trong `data.yaml`. SHA-256 của đủ 20 file nhãn train trong kết quả Colab khớp bản hiện tại sau chuẩn hóa newline. Gold không nằm trong gói chạy Colab và không được dùng để train; chỉ kết quả đánh giá annotation đã có được dùng để đối chiếu trong báo cáo.
+
+Số dưới đây chép nguyên từ [outputs/eval_model.json](../outputs/eval_model.json). “Chênh” là sau fine-tune trừ baseline; các giá trị mAP dùng thang 0–1.
+
+| Chỉ số | yolo26n-pose gốc | Sau fine-tune | Chênh |
+| --- | ---: | ---: | ---: |
+| pose_mAP50 | 0.8450 | 0.8450 | 0.0000 |
+| pose_mAP50-95 | 0.6853 | 0.6908 | +0.0055 |
+| pose_precision | 0.9734 | 0.9792 | +0.0058 |
+| pose_recall | 0.8462 | 0.8462 | 0.0000 |
+| box_mAP50 | 0.9785 | 0.9600 | −0.0185 |
+| box_mAP50-95 | 0.8119 | 0.8041 | −0.0078 |
+
+### Trả lời năm câu hỏi ở cuối notebook
+
+**1. pose_mAP50-95 thay đổi bao nhiêu?**
+
+Tăng 0.0055, tương đương **0.55 điểm phần trăm**. Precision pose tăng 0.58 điểm phần trăm; pose_mAP50 và recall giữ nguyên. Bộ 20 ảnh có nhiều người quay lưng, khớp bị che và người nền nhỏ; ví dụ train_06 và train_13 cho thấy model vẫn khó phục hồi các khớp này sau fine-tune. Trên 10 ảnh test, kết quả là cải thiện nhỏ ở pose và giảm ở box; chưa có nhiều lần chạy hoặc khoảng tin cậy để kết luận mức tăng này ổn định.
+
+**2. Box mAP và pose mAP chênh nhau bao nhiêu?**
+
+Ở mAP50–95, baseline chênh `0.8119 − 0.6853 = 0.1266` (**12.66 điểm phần trăm**); sau fine-tune chênh `0.8041 − 0.6908 = 0.1133` (**11.33 điểm phần trăm**). Box vẫn đạt điểm cao hơn pose: tìm vùng người dễ hơn đặt đúng 17 khớp, đặc biệt ở người nhỏ hoặc các chi bị che. Trong train_13, model tìm đủ ba người nhưng pose người áo xanh chỉ đạt OKS 0.530; bbox được nhận ra không bảo đảm cổ tay và cổ chân đúng. Box_mAP50–95 giảm 0.78 điểm phần trăm sau fine-tune, nên không thể nói mọi mặt của model đều tốt hơn.
+
+**3. Một ảnh test model đoán sai, gọi tên lỗi.**
+
+Chọn **test_03.jpg, người 1 trong nhãn test, người áo số 14 gần camera**: điểm gối phía phải ảnh (`left_knee`) trong ảnh dự đoán lệch về vùng đùi sát yên xe so với khớp gối trên nhãn tham chiếu. Tôi xếp ca này vào **lệch nhẹ**, cần đặt lại đúng khớp; không có bằng chứng chắc về đảo trái/phải hoặc lẫn sang người áo số 3 ở ca này. [Ảnh dự đoán thật](model_evidence/test/test_03.jpg) và [ảnh phủ nhãn test](model_evidence/test/test_03_labels.jpg) cho phép kiểm trực tiếp. Nhãn tham chiếu đặt left_knee tại khoảng `(405, 292)` px; ZIP không có tọa độ dự đoán test dạng JSON nên không ghi sai số pixel của model như một phép đo đã tính.
+
+Một lỗi detector bổ sung ở [test_02.jpg](model_evidence/test/test_02.jpg): model tạo thêm bbox `person 0.31` quanh con chim trên bờ tường phía trái. Đây là nhầm đối tượng/thừa người, được ghi để không bỏ qua lỗi số lượng chỉ vì pose của người thật phía phải tương đối đúng.
+
+**4. Ảnh nào có OKS thấp nhất giữa nhãn của tôi và model? Ai đúng?**
+
+Theo **điểm của từng cặp người–pose trong bảng notebook**, thấp nhất là **train_13.jpg, người 1 trong nhãn hiện tại, người áo xanh sát mép trái, ID CVAT 592**. Người này ghép với người 3 của model: notebook ghi **0.530**, tính lại từ tọa độ lưu trong ZIP được khoảng **0.5298**. Hai người còn lại trong ảnh đạt 0.965 và 0.821, nên OKS trung bình ảnh 13 là 0.772. [Ảnh model](model_evidence/train/train_13.jpg) · [ảnh phủ nhãn](model_evidence/train/train_13_labels.jpg).
+
+`left_wrist` của người áo xanh có confidence model **0.0404**. Theo quy tắc notebook `score <= 0.05 → v=0`, điểm này bị loại khỏi pose đối chiếu; nhãn của tôi giữ điểm ước lượng `(34, 150)` px với **v=1**, vì cổ tay ở cuối cẳng tay vẫn trong khung nhưng bị thân che. Tôi giữ nhãn theo luật visibility của lớp. Hai cổ chân dự đoán cũng gần như đổi phía so với nhãn: left_ankle model `(38.56, 235.82)` so với nhãn `(21, 229)`; right_ankle model `(23.94, 235.09)` so với nhãn `(39, 235)`. Nhãn người này đạt OKS 1.0000 trên những khớp gold có gán, củng cố việc giữ danh tính trái/phải theo nhãn; ảnh người nền mờ nên không khẳng định từng pixel ước lượng bị che đều chính xác.
+
+Cờ 0/1/2 suy từ **confidence model** trong notebook không phải visibility annotation do người gán quyết định. Thiếu dự đoán không phải căn cứ đổi khớp bị che trong khung về v=0, và gold không gán một khớp cũng không thay đổi luật lớp.
+
+**5. Ảnh tôi gán tệ nhất có cũng là ảnh model đoán tệ nhất không?**
+
+Nếu dùng **cặp người thấp nhất** như câu 4, **không trùng**: nhãn sau rework so với gold thấp nhất ở train_06 (0.8905), còn model so với nhãn thấp nhất ở người áo xanh train_13 (0.530). Nếu thống nhất dùng **OKS trung bình những người được ghép trong từng ảnh**, **có trùng ở train_06**: nhãn–gold 0.8905 và model–nhãn 0.630, đều đứng cuối bảng tương ứng. Không so điểm thấp nhất của một người với điểm trung bình của cả ảnh rồi kết luận ảnh khó nhất giống nhau.
+
+| Ảnh | OKS nhãn–gold trung bình sau rework | OKS model–nhãn trung bình | Cặp model–nhãn thấp nhất |
+| --- | ---: | ---: | ---: |
+| train_06.jpg | 0.8905 | 0.6300 | 0.630 |
+| train_13.jpg | 0.9875 | 0.7720 | 0.530 |
+| train_18.jpg | 0.8934 | 0.8860 | 0.886 |
+
+Train_06 là người quay lưng, mũ và thân/xe che các mốc mặt và tay phía xa. Model thiếu các điểm mặt và right_wrist theo ngưỡng confidence của notebook; right_elbow lệch khoảng 30 px so với điểm ước lượng trên nhãn. [Ảnh model](model_evidence/train/train_06.jpg) · [nhãn hiện tại](model_evidence/train/train_06_labels.jpg). Cùng khó ở ảnh này gợi ý che khuất làm việc đặt khớp khó cho cả người gán và model; OKS thấp tự nó không chứng minh nhãn sai, nhất là khi gold không gán một số điểm bị che.
+
+### Các ca đối chiếu và kiểm lại kết quả
+
+- **Train_13, người áo xanh:** thiếu dự đoán left_wrist và hai cổ chân gần như đổi phía so với nhãn; giữ quy tắc v1/COCO17, không sửa nhãn theo model.
+- **Train_06, người lái xe:** mặt và right_wrist bị che có confidence thấp; vị trí right_elbow lệch. Khớp bị che trong khung vẫn được ước lượng với v1 trên nhãn.
+- **Train_03:** model báo **4 người**, nhãn có **2 người**. Tính lại ghép được hai người thật, còn hai dự đoán thừa (model người 2/4); ảnh cho thấy dự đoán trùng người nền và bbox ở búp bê dưới xe. Cổ tay phải người sau (người 2 của nhãn/người 3 model) lệch khoảng **106 px**, đi vào vùng tay người trước: **nhầm người**. [Ảnh model](model_evidence/train/train_03.jpg) · [nhãn](model_evidence/train/train_03_labels.jpg).
+
+Bảng notebook cũng báo train_10 có `model 2 / bạn 1`; ghi nhận thừa một dự đoán, không tự thêm người vào annotation để khớp model. OKS trung bình theo ảnh ở trên chỉ tính những người đã ghép; phải đọc cùng số người thừa/thiếu. Điểm bảng notebook đã làm tròn ba chữ số; [train_model_comparison.json](../outputs/train_model_comparison.json) lưu bảng xếp hạng và phép ghép tính lại từ tọa độ thật cho ba ảnh minh họa.
+
+CSV huấn luyện có **39 epoch được ghi**, trong khi notebook đặt giới hạn 80 epoch và patience 30. Cột pose_mAP50–95 trong CSV cao nhất **0.70230 ở epoch 9/10**, nhưng cuối epoch 39 chỉ còn **0.09008** (box 0.14466), cho thấy quá trình fine-tune về sau kém ổn định. Đây là số ở các lượt validation trong quá trình train; bảng báo cáo dùng **0.6908 từ eval_model.json**, được notebook đánh giá lại với best checkpoint. Gói không có weights, args.yaml hoặc log đầy đủ để xác định chính xác epoch của best checkpoint hay nguyên nhân khác biệt CSV/JSON; không lấy 0.70230 thay cho kết quả đánh giá thực tế và không gán nguyên nhân chắc chắn chỉ từ CSV.
+
+[CSV gốc](model_evidence/results.csv) · [JSON đối chiếu gốc từ Colab](../outputs/train_model_review.json) · [manifest nhập file, SHA-256 và ánh xạ đường dẫn](model_evidence/import_manifest.json). File JSON/ảnh/CSV nhận từ Colab được giữ nguyên byte; ảnh phủ nhãn bổ sung được vẽ từ nhãn hiện tại. Model weights và protected gold không commit.
 
 ## 5. Rule evidence về v1/v0
 
@@ -117,4 +176,10 @@ Không chạy train, fine-tune hoặc đánh giá model trong phạm vi rework n
 
 ## 6. Mốc và khả năng kiểm lại
 
-Manifest khóa cũ giữ nguyên trong `reports/label_lock_manifest.json`, tham chiếu commit d9ded1f; hash cũ không mô tả nhãn đã rework. [Manifest sau rework](rework_manifest.json) ghi hash bản export thật, nhãn hiện tại, kết quả trước/sau và gold dùng để đánh giá. Gold vẫn thuộc .gitignore và không commit. Các biên bản checklist/review_partner trước đó là lịch sử tại mốc khóa, không phải trạng thái lỗi còn mở sau lượt này.
+Manifest khóa cũ giữ nguyên trong `reports/label_lock_manifest.json`, tham chiếu commit d9ded1f; hash cũ không mô tả nhãn đã rework. [Manifest sau rework](rework_manifest.json) ghi hash bản export thật, nhãn hiện tại, kết quả trước/sau và gold dùng để đánh giá. Gold vẫn thuộc .gitignore và không commit. Các biên bản checklist/review_partner giữ phần lịch sử tại mốc khóa và bổ sung trạng thái bản nộp cuối sau rework/Colab; những lỗi trong phần lịch sử không phải lỗi còn mở của bản hiện tại.
+
+## 7. Artifact và bản nộp cuối
+
+Đã kiểm đủ 20 file nhãn train, export COCO, visibility JSON/Markdown, mini guideline, eval_vs_gold.json, eval_model.json, báo cáo, biên bản cá nhân và reviewer checklist. [Bảng kiểm artifact](SUBMISSION_CHECKLIST.md) và [log cấu trúc bản hiện tại](pose_validation_after.log) ghi lượt kiểm cuối. Nhãn/export không bị chỉnh khi nhập kết quả model; đủ 20 hash nhãn khớp dữ liệu Colab.
+
+URL nộp VLearn: **https://github.com/duy12345-6789/Day4-KeypointPose-LENGOCNAM**. Chỉ nộp URL fork repository vào biểu mẫu; không tải ZIP, ảnh raw, test labels, gold labels hoặc model weights lên VLearn. Việc truy cập URL không dùng thông tin đăng nhập được kiểm tra ở bản nộp cuối; protected gold và weights không nằm trong commit.

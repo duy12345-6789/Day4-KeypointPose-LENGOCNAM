@@ -1,0 +1,106 @@
+{
+  "source_archive": "Day4-Colab-results.zip",
+  "source_archive_sha256": "e6054447e1f200a5ba166c64c4868fc63302d7083ff32d50255d13303318c19a",
+  "model": "yolo26n-pose.pt",
+  "train_label_hashes_match": true,
+  "eval_model_json_copied_without_changes": true,
+  "gold_or_weights_imported": false,
+  "entries": [
+    {
+      "archive_path": "outputs/eval_model.json",
+      "repository_path": "outputs/eval_model.json",
+      "bytes": 560,
+      "sha256": "6b5940c827e6b1673518379078d6ebd20ba7bbb50be30ff5ce07cfa197054cd8"
+    },
+    {
+      "archive_path": "outputs/train_model_review.json",
+      "repository_path": "outputs/train_model_review.json",
+      "bytes": 21842,
+      "sha256": "01c6c4e04e56138f53b09cebd8e0b454b4cc45253030448fe9dcac1ec6c8b0cc"
+    },
+    {
+      "archive_path": "outputs/runs/pose_finetune/results.csv",
+      "repository_path": "reports/model_evidence/results.csv",
+      "bytes": 7880,
+      "sha256": "487619932862f8b6ed24da74c46217ad7530230657b25e54688843b88fe8a5a6"
+    },
+    {
+      "archive_path": "outputs/runs/predictions/test/test_01.jpg",
+      "repository_path": "reports/model_evidence/test/test_01.jpg",
+      "bytes": 117033,
+      "sha256": "4ada2d717f933214c64dbebd6126195cc6f7460738505e06d0280e98d93c3938"
+    },
+    {
+      "archive_path": "outputs/runs/predictions/test/test_02.jpg",
+      "repository_path": "reports/model_evidence/test/test_02.jpg",
+      "bytes": 52361,
+      "sha256": "998da48e1d83aa52aca42aad746bf482fb29a1235463ed383cf7ea6dae35ac90"
+    },
+    {
+      "archive_path": "outputs/runs/predictions/test/test_03.jpg",
+      "repository_path": "reports/model_evidence/test/test_03.jpg",
+      "bytes": 139853,
+      "sha256": "de2826264275e0ffd9268585794bca42b92f124446b76ee67066aef15a7feaff"
+    },
+    {
+      "archive_path": "outputs/runs/predictions/test/test_04.jpg",
+      "repository_path": "reports/model_evidence/test/test_04.jpg",
+      "bytes": 133485,
+      "sha256": "5f9d0c0ae627d722e73c44a5290da236165d2bc118c1f7b3bcc13de850a8292f"
+    },
+    {
+      "archive_path": "outputs/runs/predictions/test/test_05.jpg",
+      "repository_path": "reports/model_evidence/test/test_05.jpg",
+      "bytes": 136793,
+      "sha256": "c36602eda638733efdeab649084199f734cdf6fc66cc530ac29e129fb91e2fa8"
+    },
+    {
+      "archive_path": "outputs/runs/predictions/test/test_06.jpg",
+      "repository_path": "reports/model_evidence/test/test_06.jpg",
+      "bytes": 192364,
+      "sha256": "28b6252d284d52117a8f22f3787a63884d4031b397ef8cfdaac55714fccc29c8"
+    },
+    {
+      "archive_path": "outputs/runs/predictions/test/test_07.jpg",
+      "repository_path": "reports/model_evidence/test/test_07.jpg",
+      "bytes": 147906,
+      "sha256": "d2edece5dfc7a096c5aaa82f887a91792096c124091bb2dc7d8896c2a3515aef"
+    },
+    {
+      "archive_path": "outputs/runs/predictions/test/test_08.jpg",
+      "repository_path": "reports/model_evidence/test/test_08.jpg",
+      "bytes": 108710,
+      "sha256": "3c8e707385f8c13a17c41e84671cf296305f007e75071172e960ead81d0fa105"
+    },
+    {
+      "archive_path": "outputs/runs/predictions/test/test_09.jpg",
+      "repository_path": "reports/model_evidence/test/test_09.jpg",
+      "bytes": 199687,
+      "sha256": "a8c4532a3b248a29960e7ef75d65939ef63bec8581964fb8910a05dd297f822e"
+    },
+    {
+      "archive_path": "outputs/runs/predictions/test/test_10.jpg",
+      "repository_path": "reports/model_evidence/test/test_10.jpg",
+      "bytes": 65981,
+      "sha256": "dcb2177c7bf99b2a15540ba1931b3455f80a373db0cdac19183ad575c84697f6"
+    },
+    {
+      "archive_path": "outputs/runs/predictions/report_train/train_13.jpg",
+      "repository_path": "reports/model_evidence/train/train_13.jpg",
+      "bytes": 59739,
+      "sha256": "8557468e761a38e23d7139d559aab746eb641edbe9a7d9b4e9ade91d2836fb1d"
+    },
+    {
+      "archive_path": "outputs/runs/predictions/report_train/train_06.jpg",
+      "repository_path": "reports/model_evidence/train/train_06.jpg",
+      "bytes": 137262,
+      "sha256": "9e74f9c6316ee7b99e9ea57f1dd19a39c91eb0ca18bd062286c2fb7901aa22b9"
+    },
+    {
+      "archive_path": "outputs/runs/predictions/report_train/train_03.jpg",
+      "repository_path": "reports/model_evidence/train/train_03.jpg",
+      "bytes": 169392,
+      "sha256": "0fa5b2d781cafebe0b5f50660422391de15bcbdaa05368e31be8c91a8248fd55"
+    }
+  ]
+}
