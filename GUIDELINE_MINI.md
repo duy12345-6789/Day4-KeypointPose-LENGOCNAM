@@ -1,57 +1,66 @@
-# Mini guideline - nhóm: ______  |  người gán: ______  |  ngày: ______
+# Mini guideline — bài cá nhân LÊ NGỌC NAM
 
-> Điền file này **trong lúc** gán nhãn, không phải sau khi xong. Mỗi lần bạn dừng lại
-> hơn 10 giây để phân vân, đó là một dòng phải ghi vào đây.
+Người gán: LÊ NGỌC NAM. Người kiểm: Codex hỗ trợ kiểm tra ảnh phủ. Ngày: 2026-09-16.
 
-## 1. Luật bắt buộc (đã thống nhất cả lớp - không sửa)
+Phạm vi: kiểm tra bản nhãn người gán đã hoàn thành; không gán lại 18 ảnh. Các quy tắc dưới đây dùng để đánh giá nhãn hiện tại. Những điểm chưa tuân thủ được ghi trong [biên bản tự kiểm](reports/review_partner.md), chưa sửa trong bản khóa.
 
-- Bộ 17 điểm COCO, đúng tên, đúng thứ tự. Lấy từ file `.SVG` chung.
-- Mọi người trong ảnh đều có **đủ 17 điểm**. Điểm không dùng được thì gắn cờ, không xoá.
-- Trái/phải tính theo **cơ thể người**, không theo bức ảnh.
-- Bị che, còn trong khung -> `v = 1`, **vẫn đặt chấm** ở vị trí ước lượng.
-- Ra ngoài mép ảnh -> `v = 0`, **không** đặt chấm.
-- Không dùng `Hidden` (`h`) - nó không được lưu vào file.
+## 1. Luật bắt buộc
 
-## 2. Luật của nhóm bạn (phải điền)
+- Dùng đúng 17 tên và thứ tự COCO trong [schema chung](assets/schema/coco17-keypoints.json).
+- Mỗi người phải có đủ 17 mục keypoint; không xóa mục bị che.
+- Trái/phải theo cơ thể người, không theo trái/phải màn hình.
+- Khớp thấy được: `v=2`. Khớp bị che nhưng còn trong khung: `v=1`, giữ tọa độ ước lượng.
+- Khớp thật sự ngoài khung: `v=0`. Khi chuyển sang YOLO, tọa độ mục này là `(0, 0)`.
+- Không dùng `Hidden` (`h`). Export không cho phép chứng minh người gán đã dùng hay không dùng phím này; chỉ kiểm được kết quả tọa độ và cờ.
+- Ưu tiên đúng khớp và đúng người; không kéo điểm sang vật che chỉ để điểm nằm trên vùng nhìn thấy.
 
-| Tình huống | Luật nhóm bạn chọn | Vì sao |
+## 2. Quy tắc cho các tình huống khó
+
+Ảnh minh họa là ảnh gốc cạnh ảnh phủ do `tools/visualize_pose.py` tạo từ export CVAT, không phải ảnh chụp giao diện CVAT. Ảnh phủ giữ nguyên nhãn hiện tại, kể cả lỗi được ghi bên dưới.
+
+| Tình huống | Quy tắc dùng để kiểm | Vì sao / ví dụ |
 | --- | --- | --- |
-| Hông của người mặc quần áo dài | | |
-| Tai bị tóc hoặc mũ bảo hiểm che một phần | | |
-| Người bị cắt ở mép ảnh (chỉ thấy từ hông trở lên) | | |
-| Cổ tay nằm sau tay lái / sau thân mình | | |
-| Hai người chồng lên nhau | | |
-| Người nhỏ đến mức nào thì không gán nữa | | |
+| Hông dưới quần áo dài | Nếu đường nét cho phép định vị khớp rõ, dùng `v=2`; nếu áo rộng/tạp dề che vị trí cụ thể, ước lượng theo thân và đùi, dùng `v=1`. | Không dùng mép áo làm khớp hông. [Người mặc tạp dề, train_01](reports/review_evidence/hip_apron.jpg). Bản hiện tại còn cần rà cờ hông. |
+| Tai bị tóc hoặc mũ che | Tai thấy được dùng `v=2`; không nhìn thấy tai thì đặt vị trí giải phẫu ước lượng với `v=1`, không đặt lên vỏ mũ. | [Mũ bảo hiểm train_04](reports/review_evidence/helmet_ears.jpg). Có điểm tai hiện dùng `v=2` dù bị mũ che. |
+| Người bị cắt ở mép ảnh | Xét từng khớp. Khớp ngoài ảnh dùng `v=0`; khớp trong ảnh bị che vẫn dùng `v=1`. Không đặt khớp ngoài ảnh lên mép ảnh. | [Phần chân bị cắt, train_07](reports/review_evidence/frame_crop.jpg). Phân biệt với đầu gối đặt gần mép dưới ở train_01. |
+| Cổ tay sau tay lái hoặc thân người | Ước lượng ở cuối cẳng tay của đúng người và dùng `v=1`; không lấy tay lái/găng tay người khác làm mốc. | [Cổ tay bị che, train_03](reports/review_evidence/hidden_wrist.jpg). `left_wrist` người sau hiện là `v=0` dù trong khung. |
+| Hai người chồng lên nhau | Lần theo vai → khuỷu → cổ tay và hông → gối → cổ chân của từng người; người sau vẫn giữ 17 mục, phần bị che dùng `v=1`. | [Hai người train_03](reports/review_evidence/overlapping_people.jpg); [vùng tay train_04](reports/review_evidence/wrist_person_mix.jpg). |
+| Người nhỏ | Không tự đặt ngưỡng loại theo pixel cho 20 ảnh core. Người phân biệt được trong ảnh vẫn cần skeleton; ghi rõ nếu không xác định được chi tiết. | [Người nhỏ train_19](reports/review_evidence/smaller_person.jpg). Các người nền train_13 cần được ghi vào lượt kiểm độ đầy đủ. |
 
-Với mỗi luật, chèn **một ảnh mẫu** (screenshot từ CVAT) thay vì chỉ viết một câu.
-Slide 12 nói rõ: khớp không có bề mặt nhìn thấy được thì phải có ảnh mẫu, không phải
-một câu văn chung chung.
+## 3. Ba ca mơ hồ đã gặp
 
-## 3. Ba ca mơ hồ đã gặp (bắt buộc, ghi ít nhất 3)
+### Ca 1 — train_02.jpg, người 1, các điểm mặt
 
-### Ca 1 - ảnh `______`, người thứ `___`, khớp `______`
+- Mơ hồ: người đạp xe quay đầu khỏi camera, mũ và tóc che các mốc mặt; hai mắt trong export là tọa độ ước lượng.
+- Cách kiểm: giữ danh tính trái/phải theo thân và đường đi các chi; không đảo vai/hông chỉ vì cảnh báo dựa trên hai mắt.
+- Vì sao: cảnh báo hướng mắt không đủ kết luận đảo trái/phải khi các điểm mắt đều `v=1`.
+- Hậu quả nếu quyết ngược: có thể đảo cả phía cơ thể vốn đúng hoặc dạy model nhận mốc trên mũ như mốc mặt.
+- Kết quả bản hiện tại: chưa xác nhận lỗi đảo thân; vị trí đầu là vùng cần kiểm thêm nếu được phép mở nhãn.
 
-- Mơ hồ ở chỗ nào:
-- Bạn quyết thế nào:
-- Vì sao:
-- Nếu người khác quyết ngược lại thì model học sai cái gì:
+### Ca 2 — train_03.jpg, người sau bên trái (dòng YOLO 1, COCO id 4), left_wrist
 
-### Ca 2 - ảnh `______`, người thứ `___`, khớp `______`
+- Mơ hồ: cổ tay bị người trước che; khó định vị chính xác trên ảnh.
+- Cách kiểm: đây là khớp trong khung bị che, phải có tọa độ ước lượng với `v=1`.
+- Vì sao: sự che khuất không có nghĩa là cổ tay ra ngoài khung; export hiện có tọa độ `(272.93, 214.39)` nhưng cờ `v=0`.
+- Hậu quả nếu quyết ngược: điểm bị loại khỏi học keypoint thay vì học tư thế có che khuất.
+- Kết quả bản hiện tại: ghi nhận lỗi cờ, chưa sửa tọa độ hoặc visibility.
 
-- Mơ hồ ở chỗ nào:
-- Bạn quyết thế nào:
-- Vì sao:
-- Nếu người khác quyết ngược lại thì model học sai cái gì:
+### Ca 3 — train_09.jpg, người 1, nose và right_eye
 
-### Ca 3 - ảnh `______`, người thứ `___`, khớp `______`
+- Mơ hồ: người quay lưng; các mốc mặt không nhìn thấy.
+- Cách kiểm: ước lượng vị trí thuộc đầu người và dùng `v=1` nếu còn trong khung.
+- Vì sao: đầu nằm giữa ảnh; `v=0` của nose/right_eye không thể được giải thích bằng cắt mép ảnh. [Ảnh đối chiếu](reports/review_evidence/rear_head_v0.jpg).
+- Hậu quả nếu quyết ngược: model mất các điểm mặt ở tư thế quay lưng; báo cáo visibility đánh đồng bị che với ngoài ảnh.
+- Kết quả bản hiện tại: lỗi được ghi trong biên bản; nhãn được giữ nguyên theo phạm vi tự kiểm.
 
-- Mơ hồ ở chỗ nào:
-- Bạn quyết thế nào:
-- Vì sao:
-- Nếu người khác quyết ngược lại thì model học sai cái gì:
+## 4. Visibility và bài cá nhân
 
-## 4. Sau khi so visibility report với bạn cùng nhóm
+- Đã tạo [bảng visibility](reports/visibility_report.md) và [JSON](outputs/visibility_report.json).
+- Tổng 20 ảnh, 27 skeleton: `v=2: 334`, `v=1: 93`, `v=0: 32`.
+- Tai trái có tỷ lệ `v=1` cao nhất: 11/27, khoảng 41%. Hông trái 7/27 so với hông phải 3/27 là tín hiệu cần soi ảnh, không tự chứng minh sai.
+- So sánh với partner: **không áp dụng**, theo yêu cầu làm cá nhân. Không có bảng đối chiếu hay điểm chấm của partner.
+- Quy tắc cần làm rõ: mặt quay lưng vẫn ở trong khung; điểm bị che dùng `v=1`, không dùng `v=0`.
 
-- Khớp lệch `%v=1` nhiều nhất: `______` (bạn `___%` / họ `___%`)
-- Nguyên nhân là **guideline chưa rõ** hay **một trong hai bên gán sai**:
-- Luật mới bổ sung vào mục 2 sau khi thống nhất:
+## 5. Mốc khóa nhãn
+
+Commit cuối lượt kiểm khóa nguyên export người gán và 20 file YOLO chuyển đổi. Hash từng file nằm trong [manifest](reports/label_lock_manifest.json). Sau commit không chỉnh nhãn cho tới protected release. Mốc này bảo toàn bài nộp; không phải xác nhận rằng toàn bộ kiểm hình dáng đã đạt. Các phát hiện còn mở được giữ trong biên bản tự kiểm.

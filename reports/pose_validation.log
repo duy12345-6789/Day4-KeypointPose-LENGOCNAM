@@ -1,0 +1,19 @@
+$ python3 tools/check_pose_labels.py --images dataset/images/train --labels dataset/labels/train
+Đã đọc 20/20 file nhãn, 27 skeleton.
+Cờ visibility: v=2 334 | v=1 93 | v=0 32
+
+CẢNH BÁO (7) - không chặn nộp, nhưng phải xem lại:
+- train_02.txt:1: left_shoulder/right_shoulder nằm ngược chiều so với hai mắt - dấu hiệu đảo trái/phải, mở tools/visualize_pose.py xem lại
+- train_02.txt:1: left_hip/right_hip nằm ngược chiều so với hai mắt - dấu hiệu đảo trái/phải, mở tools/visualize_pose.py xem lại
+- train_04.txt:1: có 4 khớp v=0 trong khi cả người nằm gọn giữa ảnh. Khớp không ra khỏi khung được thì phải là v=1 (bị che, vẫn đặt chấm), không phải v=0
+- train_04.txt:2: có 7 khớp v=0 trong khi cả người nằm gọn giữa ảnh. Khớp không ra khỏi khung được thì phải là v=1 (bị che, vẫn đặt chấm), không phải v=0
+- train_09.txt:1: có 4 khớp v=0 trong khi cả người nằm gọn giữa ảnh. Khớp không ra khỏi khung được thì phải là v=1 (bị che, vẫn đặt chấm), không phải v=0
+- train_10.txt:1: có 4 khớp v=0 trong khi cả người nằm gọn giữa ảnh. Khớp không ra khỏi khung được thì phải là v=1 (bị che, vẫn đặt chấm), không phải v=0
+- train_11.txt:1: có 4 khớp v=0 trong khi cả người nằm gọn giữa ảnh. Khớp không ra khỏi khung được thì phải là v=1 (bị che, vẫn đặt chấm), không phải v=0
+
+ĐẠT định dạng. Chạy tiếp tools/visibility_report.py, rồi chờ gold để chấm chất lượng.
+
+$ python3 tools/visualize_pose.py --images dataset/images/train --labels dataset/labels/train --out outputs/vis_train
+Đã vẽ 27 skeleton vào outputs\vis_train
+Xanh = bên trái cơ thể, cam = bên phải, vàng = khớp bị che (v=1).
+Nhìn vùng vai và hông: hai đường nối cắt chéo nhau => nghi đảo trái/phải.

@@ -1,0 +1,124 @@
+{
+  "mode": "audit_only_no_annotation_edits",
+  "source": "annotations/coco_keypoints/person_keypoints_default.json",
+  "images_reviewed": "dataset/images/train/train_08.jpg through train_14.jpg and outputs/vis_train matching overlays",
+  "protected_sources_read": false,
+  "four_error_categories": ["left_right_swap", "cross_person_keypoints", "outside_vs_occluded", "landmark_drift"],
+  "guideline_findings": [
+    "Anatomical left/right follows the person's body. Eye/body direction warnings are insufficient when the head is turned, hidden, or inferred.",
+    "v=0 means a landmark is outside the image. A landmark hidden by a helmet, backpack, another person, table, or motorcycle but still in frame requires an estimated location and v=1.",
+    "v=2 is appropriate where a landmark or joint contour is discernible, including close-fitting clothing. Hips hidden by a loose shirt or jacket need v=1 under the agreed rule.",
+    "Raw CVAT COCO export can retain nonzero placeholder coordinates for v=0 points. The existing converter intentionally writes these as 0 0 0. An in-frame placeholder alone does not prove that the anatomical joint is in frame.",
+    "Do not automatically change knee/ankle visibility based on the tight skeleton bbox: a cropped seated or leaning person can have lower joints truly below the image.",
+    "Annotate every discernible person, including background people. No small-person exclusion threshold was provided by the user."
+  ],
+  "reviews": [
+    {
+      "image": "train_08.jpg",
+      "annotation_id": 11,
+      "changes": {},
+      "four_errors": {
+        "left_right_swap": {"status": "not_confirmed", "notes": "Front-facing rider's limb colors follow body sides; no clear swap."},
+        "cross_person_keypoints": {"status": "not_observed", "notes": "One discernible person."},
+        "outside_vs_occluded": {"status": "needs_review", "notes": "Left hip/knee/ankle behind motorcycle are already v=1. Review right hip v=2 against the rule for a loose jacket hiding the exact hip location."},
+        "landmark_drift": {"status": "confirmed", "notes": "right_ankle at [135.88,420.57,2] is on the visible lower shin; the jeans cuff and ankle are visibly lower, around y=450-460. Right elbow and inferred left hip also merit a close view."}
+      },
+      "missing_people": [],
+      "notes": ["Audit evidence only; do not apply replacement coordinates without the user's annotation review."]
+    },
+    {
+      "image": "train_09.jpg",
+      "annotation_id": 12,
+      "changes": {},
+      "four_errors": {
+        "left_right_swap": {"status": "not_confirmed", "notes": "Back-facing rider; head landmarks are hidden, so eye-direction heuristics do not establish body-side errors."},
+        "cross_person_keypoints": {"status": "not_observed", "notes": "No second person visible to mix landmarks with."},
+        "outside_vs_occluded": {"status": "confirmed", "notes": "nose and right_eye are v=0 although the helmet/head is fully inside the image; they are hidden rather than outside. right_elbow and right_wrist are also unobserved in-frame arm landmarks and need occlusion/location review. The head landmarks currently v=2 on helmet edges also need review because the actual face is turned away/helmet-covered."},
+        "landmark_drift": {"status": "needs_review", "notes": "right_wrist [363.71,350.65,0] is a discarded placeholder in the road, not an observed wrist. If marking this wrist occluded, estimate its true location near the rider/handlebar rather than retaining the placeholder. left_wrist location also merits review."}
+      },
+      "missing_people": [],
+      "notes": ["Confirmed visibility inconsistency; no labels changed."]
+    },
+    {
+      "image": "train_10.jpg",
+      "annotation_id": 13,
+      "changes": {},
+      "four_errors": {
+        "left_right_swap": {"status": "not_confirmed", "notes": "Tilted head and leaning torso explain slanted facial landmarks; no clear body-side swap."},
+        "cross_person_keypoints": {"status": "not_observed", "notes": "One discernible person."},
+        "outside_vs_occluded": {"status": "warning_only", "notes": "Both knees and ankles are v=0. The lower body is cropped while the rider leans into the camera, so these joints may truly be below the image. The tight-bbox heuristic cannot establish that these four flags are wrong. Both hips are already v=1 behind clothing/windscreen."},
+        "landmark_drift": {"status": "not_confirmed", "notes": "No clear severe displacement; hidden hips are estimated and require anatomical judgment."}
+      },
+      "missing_people": [],
+      "notes": ["Do not blindly change four lower-limb v=0 flags to v=1 from the automated warning."]
+    },
+    {
+      "image": "train_11.jpg",
+      "annotation_id": 14,
+      "changes": {},
+      "four_errors": {
+        "left_right_swap": {"status": "not_confirmed", "notes": "Front-facing woman; no clear swap."},
+        "cross_person_keypoints": {"status": "not_observed", "notes": "Cat is not a person; hidden arm points on the cat silhouette are estimated positions, not a second-person assignment."},
+        "outside_vs_occluded": {"status": "needs_review", "notes": "Knees can plausibly be hidden behind the table within the image around y=370-410 and would then require v=1. Ankles likely extend below the 427-pixel image and can validly remain v=0. This is not evidence to change all four lower-limb flags together."},
+        "landmark_drift": {"status": "needs_review", "notes": "Occluded elbow/wrist and hip positions behind the cat/table are uncertain. Review the estimated left elbow and pelvis positions; no precise replacement claimed."}
+      },
+      "missing_people": [],
+      "notes": ["Distinguish table occlusion from genuine image cropping."]
+    },
+    {
+      "image": "train_12.jpg",
+      "annotation_id": 15,
+      "changes": {},
+      "four_errors": {
+        "left_right_swap": {"status": "not_confirmed", "notes": "Rider profile and body-side limb assignment are plausible."},
+        "cross_person_keypoints": {"status": "not_observed", "notes": "One discernible person."},
+        "outside_vs_occluded": {"status": "needs_review", "notes": "Both hips are v=2 beneath a loose polo despite the agreed v=1 rule for an indistinct hip location. right_knee v=2 lies immediately below the hip near [167.71,303.88], where cardboard/upper thigh hides the true knee."},
+        "landmark_drift": {"status": "confirmed", "notes": "right_ankle [168.07,440.07,2] is visibly above the shoe/cuff at roughly y=485-505, on the lower leg. The knee only about 14 pixels below the same-side hip is also anatomically implausible for this seated pose; review its position rather than only its visibility."}
+      },
+      "missing_people": [],
+      "notes": ["Cardboard and scooter hide several joints; inferred coordinates remain unresolved."]
+    },
+    {
+      "image": "train_13.jpg",
+      "annotation_id": 16,
+      "changes": {},
+      "four_errors": {
+        "left_right_swap": {"status": "not_confirmed", "notes": "Main man's arm/hand assignments follow body sides; no clear swap."},
+        "cross_person_keypoints": {"status": "not_observed", "notes": "Main skeleton remains on the main person."},
+        "outside_vs_occluded": {"status": "needs_review", "notes": "Both hips are v=2 under a long loose suit jacket; use the agreed visibility rule. Knees marked v=2 near the bottom edge may be upper-thigh/bag positions rather than discernible knees; confirm genuine crop/occlusion without blindly changing flags."},
+        "landmark_drift": {"status": "needs_review", "notes": "Main left knee near [289.83,270.17,2] visually aligns with the bag edge, not a clearly visible knee. Review lower-body landmarks against the crop."}
+      },
+      "missing_people": [
+        {"status": "confirmed", "description": "Beige-shirted man behind and left of the main man; head, torso, arm, and legs are discernible.", "guidance_bbox_xyxy": [84,16,162,281], "need_new_17_points": true},
+        {"status": "confirmed", "description": "Distant blue-shirted person near the left image edge; head, torso, arms, and legs are discernible.", "guidance_bbox_xyxy": [13,95,78,251], "need_new_17_points": true}
+      ],
+      "notes": ["Baseline contains one skeleton but three discernible people. All-person checklist is not met. Bboxes are image-review guidance, not submitted annotations."]
+    },
+    {
+      "image": "train_14.jpg",
+      "annotation_id": 17,
+      "changes": {},
+      "four_errors": {
+        "left_right_swap": {"status": "not_confirmed", "notes": "Front-facing seated person has anatomical left on image right; assignments are plausible."},
+        "cross_person_keypoints": {"status": "not_observed", "notes": "Skeleton remains on the seated person rather than standing person or dog."},
+        "outside_vs_occluded": {"status": "needs_review", "notes": "right_hip v=2 is beneath a loose shirt, while the other hip is v=1. right_knee v=2 near [278.17,330.17] is obscured by the blue umbrella/skirt area and needs visibility/location review."},
+        "landmark_drift": {"status": "needs_review", "notes": "Leg joints partly hidden by umbrella and dog; review inferred knee heights, but no severe displacement conclusively established."}
+      },
+      "missing_people": [],
+      "notes": ["Two discernible people, both represented in baseline."]
+    },
+    {
+      "image": "train_14.jpg",
+      "annotation_id": 18,
+      "changes": {},
+      "four_errors": {
+        "left_right_swap": {"status": "not_confirmed", "notes": "Back-facing standing person has anatomical left on image left; assignments are plausible."},
+        "cross_person_keypoints": {"status": "not_observed", "notes": "No landmarks clearly taken from the seated person."},
+        "outside_vs_occluded": {"status": "needs_review", "notes": "Inferred facial landmarks correctly use v=1 for the turned-away face. right_ear v=2 appears on a cap/hair-covered region and merits review."},
+        "landmark_drift": {"status": "needs_review", "notes": "Bent-arm elbows/wrists may be misplaced toward forearms/torso; inspect the upper-arm hinge positions at higher zoom."}
+      },
+      "missing_people": [],
+      "notes": ["No annotation edits performed."]
+    }
+  ]
+}

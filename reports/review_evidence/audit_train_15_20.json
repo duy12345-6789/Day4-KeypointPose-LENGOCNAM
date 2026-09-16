@@ -1,0 +1,127 @@
+{
+  "reviewer": "Codex visual audit of original train images and unchanged COCO overlays",
+  "scope": "train_15.jpg through train_20.jpg only; no gold/test access, model installation, or annotation edits",
+  "source": "annotations/coco_keypoints/person_keypoints_default.json",
+  "status": "findings only; nothing applied",
+  "person_numbering": "Person number follows COCO annotation order within each image; annotation_id is also supplied.",
+  "error_types_checked": ["slight_offset", "left_right_swap", "wrong_person", "large_displacement"],
+  "summary": {
+    "images_reviewed": 6,
+    "annotated_people_reviewed": 9,
+    "omitted_distinguishable_people_detected": 0,
+    "left_right_swap_detected": false,
+    "wrong_person_assignment_detected": false,
+    "visibility_note": "All 153 keypoints in this subset have v=1 or v=2; no v=0 points. Visibility discrepancies below are separate from the four coordinate error classes."
+  },
+  "findings": [
+    {
+      "image": "train_15.jpg",
+      "person": 1,
+      "annotation_id": 19,
+      "description": "Black-clothed motorcyclist at image left",
+      "error_type": "large_displacement",
+      "keypoints": ["left_ear"],
+      "certainty": "confirmed",
+      "note": "The left_ear point at (135.17, 98.58, v=1) is on the upper helmet, above the estimated anatomical ear level. The ear is hidden, so a replacement location would require estimation; no replacement is proposed or applied."
+    },
+    {
+      "image": "train_15.jpg",
+      "person": 1,
+      "annotation_id": 19,
+      "description": "Black-clothed motorcyclist at image left",
+      "error_type": "large_displacement",
+      "keypoints": ["left_shoulder"],
+      "certainty": "uncertain",
+      "note": "The shoulder at (143.74, 132.30) is very close to the helmet/neck edge. Compare it with the shoulder contour below and to image right; the raised hood and bulky coat make the exact joint difficult to locate. This is a review flag, not a confirmed correction."
+    },
+    {
+      "image": "train_15.jpg",
+      "person": 2,
+      "annotation_id": 20,
+      "description": "Woman in green helmet at image right",
+      "error_type": "large_displacement",
+      "keypoints": ["right_ear"],
+      "certainty": "confirmed",
+      "note": "The right_ear estimate at (317.24, 90.25, v=1) lies on the upper helmet rather than at ear level. The ear is hidden; its exact anatomical estimate remains uncertain."
+    },
+    {
+      "image": "train_15.jpg",
+      "person": 2,
+      "annotation_id": 20,
+      "description": "Woman in green helmet at image right",
+      "error_type": "visibility",
+      "keypoints": ["left_eye", "left_ear"],
+      "certainty": "confirmed",
+      "note": "left_eye is marked v=2 behind opaque sunglasses; left_ear is marked v=2 under the helmet. Under the lab guideline, these hidden landmarks should be treated as estimated/occluded. Labels remain unchanged."
+    },
+    {
+      "image": "train_16.jpg",
+      "person": 2,
+      "annotation_id": 22,
+      "description": "White-shirted frisbee player facing away",
+      "error_type": "visibility",
+      "keypoints": ["right_eye", "right_ear"],
+      "certainty": "confirmed",
+      "note": "Both are v=2, but the original shows the rear of the head and blond hair rather than a visible eye or ear. The other three face/head landmarks are already v=1."
+    },
+    {
+      "image": "train_16.jpg",
+      "person": 2,
+      "annotation_id": 22,
+      "description": "White-shirted frisbee player facing away",
+      "error_type": "slight_offset",
+      "keypoints": ["left_wrist"],
+      "certainty": "uncertain",
+      "note": "The wrist at (279.21, 206.25) appears slightly toward the forearm relative to the hand at the end of the outstretched arm. Person identity and anatomical side appear consistent."
+    },
+    {
+      "image": "train_17.jpg",
+      "person": 1,
+      "annotation_id": 23,
+      "description": "Tennis player",
+      "error_type": "slight_offset",
+      "keypoints": ["left_elbow"],
+      "certainty": "uncertain",
+      "note": "The elbow at (227.71, 254.96) may be several pixels above the elbow transition visible in the original. Straight arm and clothing limit precision. Both wrists were checked against the original and are not flagged as large errors."
+    },
+    {
+      "image": "train_19.jpg",
+      "person": 2,
+      "annotation_id": 26,
+      "description": "Smaller white-shirted person at image left",
+      "error_type": "slight_offset",
+      "keypoints": ["left_wrist", "right_wrist"],
+      "certainty": "uncertain",
+      "note": "Both wrist points appear a few pixels above the hand/forearm transitions. The person is small, so the exact wrist centers are uncertain; sides and identity appear consistent."
+    },
+    {
+      "image": "train_19.jpg",
+      "person": 2,
+      "annotation_id": 26,
+      "description": "Smaller white-shirted person at image left",
+      "error_type": "visibility",
+      "keypoints": ["right_eye"],
+      "certainty": "uncertain",
+      "note": "right_eye is v=2, but the enlarged original suggests dark eyewear or deep cap shadow. Verify whether the eye itself is discernible before deciding the flag."
+    },
+    {
+      "image": "train_20.jpg",
+      "person": 1,
+      "annotation_id": 27,
+      "description": "Police motorcyclist",
+      "error_type": "visibility",
+      "keypoints": ["left_eye", "right_eye", "left_ear", "right_ear"],
+      "certainty": "confirmed",
+      "note": "All four are v=2. Opaque sunglasses hide both eyes and the helmet covers both ears. Their presence inside the frame does not make them visible landmarks."
+    }
+  ],
+  "per_image_completeness": [
+    {"image": "train_15.jpg", "annotated_people": 2, "distinguishable_people": 2, "omitted_people_detected": false},
+    {"image": "train_16.jpg", "annotated_people": 2, "distinguishable_people": 2, "omitted_people_detected": false},
+    {"image": "train_17.jpg", "annotated_people": 1, "distinguishable_people": 1, "omitted_people_detected": false},
+    {"image": "train_18.jpg", "annotated_people": 1, "distinguishable_people": 1, "omitted_people_detected": false, "note": "Original and overlay reviewed, including enlarged head. No issue found in the four error classes; visible child face and already-occluded far knee/ankle appear consistent."},
+    {"image": "train_19.jpg", "annotated_people": 2, "distinguishable_people": 2, "omitted_people_detected": false},
+    {"image": "train_20.jpg", "annotated_people": 1, "distinguishable_people": 1, "omitted_people_detected": false}
+  ],
+  "limitations": "Visual audit without gold or OKS. Slight offsets and hidden anatomical coordinates cannot be quantified as ground-truth errors. Thin netting and reflective windscreen were not treated as automatic visibility changes."
+}

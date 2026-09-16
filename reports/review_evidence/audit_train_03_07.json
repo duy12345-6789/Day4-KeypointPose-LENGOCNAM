@@ -1,0 +1,151 @@
+{
+  "scope": "Read-only visual audit of existing user annotations; no labels changed",
+  "images": [
+    "train_03.jpg",
+    "train_04.jpg",
+    "train_05.jpg",
+    "train_06.jpg",
+    "train_07.jpg"
+  ],
+  "reviewed_originals_and_overlays": true,
+  "checks": [
+    "anatomical left/right",
+    "person identity",
+    "joint drift",
+    "occluded keypoints retained"
+  ],
+  "findings": [
+    {
+      "image": "train_03.jpg",
+      "annotation_id": 4,
+      "keypoint": "left_wrist",
+      "type": "occluded_point_marked_v0",
+      "certainty": "confirmed",
+      "current": [
+        272.93,
+        214.39,
+        0
+      ],
+      "note": "Rear man has both arms within frame; left wrist is hidden by the front man, not outside the image. It should remain a point with v1. Coordinate requires an estimate; no change applied."
+    },
+    {
+      "image": "train_03.jpg",
+      "annotation_id": 4,
+      "keypoint": "left_knee",
+      "type": "visibility_review",
+      "certainty": "review",
+      "current": [
+        307.25,
+        386.98,
+        2
+      ],
+      "note": "Rear man left knee overlaps the foreground man and bicycle; visible outline attribution is uncertain. Review v2 versus v1 without deleting the joint."
+    },
+    {
+      "image": "train_04.jpg",
+      "annotation_id": 7,
+      "keypoint": "left_wrist",
+      "type": "wrong_person_or_joint_drift",
+      "certainty": "confirmed",
+      "current": [
+        366.09,
+        353.31,
+        1
+      ],
+      "note": "Grey-shirt left person arm extends behind the foreground black-shirt person. Existing wrist endpoint coincides with the foreground rider glove region. Estimated own wrist is nearer x330,y365 behind the body; preserve v1. No change applied."
+    },
+    {
+      "image": "train_04.jpg",
+      "annotation_id": 6,
+      "keypoints": [
+        "left_ear",
+        "right_ear"
+      ],
+      "type": "occlusion_visibility",
+      "certainty": "confirmed",
+      "note": "Both ears are covered by the helmet padding, but exported v2. The ears are in frame and should use v1 with estimated coordinates, not v0."
+    },
+    {
+      "image": "train_04.jpg",
+      "annotation_id": 7,
+      "keypoints": [
+        "left_ear",
+        "right_ear"
+      ],
+      "type": "occlusion_visibility",
+      "certainty": "confirmed",
+      "note": "Both ear keypoints lie in helmet shell/padding. Exported v2 is inconsistent with actual occlusion; v1 is appropriate."
+    },
+    {
+      "image": "train_04.jpg",
+      "annotation_ids": [
+        6,
+        7
+      ],
+      "type": "outside_frame_interpretation",
+      "certainty": "no_error_confirmed",
+      "note": "Knees/ankles of the foreground rider can be below bottom y457; rear rider hips/legs and right wrist can also fall below the crop. Default coordinates within the frame do not prove physical joints are in frame. Do not treat every v0 in this image as an error."
+    },
+    {
+      "image": "train_05.jpg",
+      "annotation_id": 8,
+      "keypoint": "left_ankle",
+      "type": "joint_drift",
+      "certainty": "review",
+      "current": [
+        164.71,
+        438.98,
+        1
+      ],
+      "note": "Bent left leg runs behind the standing right leg. The current left ankle is near the standing right shin. The partially hidden left shoe/ankle appears farther to image right, around x180-190,y445-455. Retain v1 and visually refine if labels are reopened."
+    },
+    {
+      "image": "train_06.jpg",
+      "annotation_id": 9,
+      "keypoint": "right_shoulder",
+      "type": "joint_drift_or_object_identity",
+      "certainty": "confirmed",
+      "current": [
+        408.59,
+        202.97,
+        2
+      ],
+      "note": "Current point sits at the motorcycle black passenger backrest upper edge, rather than the rider shoulder. The right shoulder is nearer the green jacket at x380-395,y205-215, partly hidden by the backrest. No coordinate change applied."
+    },
+    {
+      "image": "train_06.jpg",
+      "annotation_id": 9,
+      "keypoints": [
+        "right_elbow",
+        "right_wrist",
+        "right_knee",
+        "right_ankle"
+      ],
+      "type": "occluded_position_uncertainty",
+      "certainty": "review",
+      "note": "Far-side joints are occluded; exported v1 correctly keeps them. Positions are estimates and cannot be verified precisely from this single view. Preserve visibility and review the limb chain rather than snapping onto motorcycle components."
+    },
+    {
+      "image": "train_07.jpg",
+      "annotation_id": 10,
+      "keypoints": [
+        "left_hip",
+        "right_hip"
+      ],
+      "type": "occlusion_visibility",
+      "certainty": "review",
+      "note": "Loose red jacket covers hip landmarks; exported v2 may need v1 if the shared rule treats hidden landmarks under loose clothing as occluded. Anatomical left/right and person identity look consistent. Both ankles can legitimately be outside the bottom crop."
+    }
+  ],
+  "person_counts": {
+    "train_03.jpg": 2,
+    "train_04.jpg": 2,
+    "train_05.jpg": 1,
+    "train_06.jpg": 1,
+    "train_07.jpg": 1
+  },
+  "missed_people": "No additional discernible people found in this subset. Doll in train_03 is an object.",
+  "left_right": "No confirmed anatomical left/right swap in images 03..07",
+  "status": "Findings unresolved intentionally: user requested checks/docs/commit without changing existing labels",
+  "labels_changed": false
+}
