@@ -1,6 +1,5 @@
 # Gold của tập train được phát sau khi lớp khóa nhãn; không commit nó vào repo này.
-gold/*
-!gold/.gitkeep
+gold/
 
 # Kết quả chạy: ảnh đã vẽ skeleton (nặng) và thư mục runs của Ultralytics.
 outputs/vis_*/
